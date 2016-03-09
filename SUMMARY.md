@@ -30,6 +30,6 @@
    * Database Caching
 * [Sharing your Code](sharing/README.md)
 * Troubleshooting
-   * Logs
+   * Log Files
    * PID Files
 
