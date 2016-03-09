@@ -10,7 +10,7 @@
 * [The Kernel](kernel/README.md)
 * [Creating a Site](creating_a_site/README.md)
 * [Putting Files Online](publishing/README.md)
-* Dynamic Pages
+* [Dynamic Pages](dynamic_pages/README.md)
    * [Creating a Dynamic Page](dynamic_pages/creating.md)
    * [Handling a Whole Section](dynamic_pages/sections.md)
    * [Using PHP classes](dynamic_pages/php_classes.md)
