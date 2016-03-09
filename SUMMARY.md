@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * The Kernel
 * [Server Setup](server_setup/README.md)
    * [Hosting](server_setup/hosting/README.md)
        * [Digital Ocean](server_setup/hosting/digital_ocean.md)
