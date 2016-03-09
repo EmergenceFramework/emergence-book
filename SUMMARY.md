@@ -13,4 +13,5 @@
 * Dynamic Pages
    * Create a Dynamic Page
    * Handling a Whole Section
+   * Using PHP classes
 
