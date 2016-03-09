@@ -6,4 +6,5 @@
        * [Digital Ocean](digital_ocean.md)
        * [Linode](linode.md)
        * Google Compute Engine
+       * Amazon Web Services
 
