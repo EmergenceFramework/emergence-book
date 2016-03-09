@@ -15,6 +15,7 @@
    * HTML and Static Files
    * [Uploading in Bulk](publishing/pushinging/uploading.md)
    * Using the Online Editor
+   * Editing Files via WebDAV
 * [Dynamic Pages](dynamic_pages/README.md)
    * [Creating a Dynamic Page](dynamic_pages/creating.md)
    * [Handling a Whole Section](dynamic_pages/sections.md)
