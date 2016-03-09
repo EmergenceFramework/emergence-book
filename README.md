@@ -8,6 +8,13 @@
 - Plumbing sucks
 - Move infrastructure out of your code
 
+## What does it do?
+### Kernel
+Managed services
+### Runtime
+Turn piles of files into living things that handle HTTP requests
+### Skeleton
+A starting point with emergence-optimized MVC, starter design, and user system
 
 ## Why PHP?
 - Execution model
