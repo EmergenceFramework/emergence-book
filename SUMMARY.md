@@ -15,7 +15,6 @@
    * [A Simple Text File](publishing/text.md)
    * [HTML and Static Files](publishing/static_files.md)
    * [Uploading in Bulk](publishing/pushinging/uploading.md)
-   * Using the Online Editor
 * [Dynamic Pages](dynamic_pages/README.md)
    * [Creating a Dynamic Page](dynamic_pages/creating.md)
    * [Handling a Whole Section](dynamic_pages/sections.md)
