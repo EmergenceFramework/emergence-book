@@ -36,9 +36,9 @@
 * [Sharing your Code](sharing/README.md)
    * Allowing Inheritence
    * Pushing to Git(Hub)
+* Team Practices
 * Troubleshooting
    * Log Files
    * PID Files
    * Resetting Runtime
-* Team Practices
 
