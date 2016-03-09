@@ -24,5 +24,5 @@
    * Logging
    * Error Reporting
 * [Going to Production](production/README.md)
-* Publishing your Code
+* Sharing your Code
 
