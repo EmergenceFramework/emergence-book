@@ -7,7 +7,7 @@
        * [Linode](server_setup/hosting/linode.md)
        * [Google Compute Engine](server_setup/hosting/gce.md)
        * [Amazon Web Services](server_setup/hosting/aws.md)
-* The Kernel
+* [The Kernel](kernel/README.md)
 * [Creating a Site](creating_a_site/README.md)
 * Putting Files Online
 * Dynamic Pages
