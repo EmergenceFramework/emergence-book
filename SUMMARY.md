@@ -13,7 +13,7 @@
    * [Using the Online Editor](publishing/online_editor.md)
    * [Editing Files via WebDAV](publishing/publishing/webdav.md)
    * [A Simple Text File](publishing/text.md)
-   * HTML and Static Files
+   * [HTML and Static Files](publishing/static_files.md)
    * [Uploading in Bulk](publishing/pushinging/uploading.md)
    * Using the Online Editor
 * [Dynamic Pages](dynamic_pages/README.md)
