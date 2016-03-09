@@ -12,7 +12,7 @@
 * Putting Files Online
 * Dynamic Pages
    * [Creating a Dynamic Page](dynamic_pages/creating.md)
-   * Handling a Whole Section
+   * [Handling a Whole Section](dynamic_pages/sections.md)
    * Using PHP classes
 * Templates
    * [Creating a Template](templates/creating.md)
