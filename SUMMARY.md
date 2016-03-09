@@ -15,4 +15,5 @@
    * Handling a Whole Section
    * Using PHP classes
 * Templates
+* Models
 
