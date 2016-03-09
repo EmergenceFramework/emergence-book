@@ -20,4 +20,5 @@
    * [Creating a Model](models/creating.md)
 * [Debugging](debugging/README.md)
    * Dumping
+   * Query Profiling
 
