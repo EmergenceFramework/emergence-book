@@ -11,10 +11,18 @@ Why the `<?php`? So you can do this:
   <body>
     <p>
       <?php
-        print("Hello, it's " . date('Y-m-d'));
+        print("Hello, it&rsquo;s " . date('Y-m-d'));
       ?>
     </p>
   </body>
 </html>
 ```
 
+There are syntax shortcuts available for something so simple though:
+```php
+<html>
+  <body>
+    <p>Hello, it&rsquo;s <?=date('Y-m-d')?></p>
+  </body>
+</html>
+```
