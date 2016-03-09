@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [Server Setup](chapter1.md)
-   * Get Hosting
+   * [Get Hosting](get_hosting.md)
 
