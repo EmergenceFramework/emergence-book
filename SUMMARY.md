@@ -18,7 +18,7 @@
    * [Creating a Template](templates/creating.md)
 * [Models](models/README.md)
    * [Creating a Model](models/creating.md)
-   * Putting it Online
+   * Publish a Collection
 * [Debugging](debugging/README.md)
    * Dumping
    * Query Profiling
