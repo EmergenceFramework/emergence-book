@@ -15,7 +15,7 @@
    * Handling a Whole Section
    * Using PHP classes
 * Templates
-   * Creating a Template
+   * [Creating a Template](templates/creating.md)
 * Models
    * Creating a Model
 
