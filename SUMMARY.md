@@ -12,7 +12,7 @@
 * [Putting Files Online](publishing/README.md)
    * A Simple Text File
    * HTML
-   * Images and CS
+   * Other Static Files
 * [Dynamic Pages](dynamic_pages/README.md)
    * [Creating a Dynamic Page](dynamic_pages/creating.md)
    * [Handling a Whole Section](dynamic_pages/sections.md)
