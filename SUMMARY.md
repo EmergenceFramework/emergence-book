@@ -32,4 +32,5 @@
 * Troubleshooting
    * Log Files
    * PID Files
+   * Resetting Runtime
 
