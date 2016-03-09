@@ -8,7 +8,7 @@
        * [Google Compute Engine](server_setup/hosting/gce.md)
        * [Amazon Web Services](server_setup/hosting/aws.md)
 * The Kernel
-* Create a Site
+* Creating a Site
 * Putting Files Online
 * Dynamic Pages
 
