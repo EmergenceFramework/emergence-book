@@ -27,5 +27,6 @@
 * [Going to Production](production/README.md)
    * Backups
    * Encryption
+   * Database Caching
 * [Sharing your Code](sharing/README.md)
 
