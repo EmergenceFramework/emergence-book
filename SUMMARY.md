@@ -2,6 +2,6 @@
 
 * [Introduction](README.md)
 * [Server Setup](chapter1.md)
-   * [Hosting](get_hosting.md)
+   * [Hosting](.hosting.md/gethosting_md.md)
        * [Digital Ocean](digital_ocean.md)
 
