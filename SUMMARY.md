@@ -6,5 +6,5 @@
        * [Digital Ocean](server_setup/hosting/digital_ocean.md)
        * [Linode](server_setup/hosting/linode.md)
        * [Google Compute Engine](gce.md)
-       * [Amazon Web Services](aws.md)
+       * [Amazon Web Services](server_setup/hosting/aws.md)
 
