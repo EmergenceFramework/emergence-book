@@ -12,7 +12,7 @@
 * [Putting Files Online](publishing/README.md)
    * [Using the Online Editor](publishing/online_editor.md)
    * [Editing Files via WebDAV](publishing/publishing/webdav.md)
-   * A Simple Text File
+   * [A Simple Text File](publishing/text.md)
    * HTML and Static Files
    * [Uploading in Bulk](publishing/pushinging/uploading.md)
    * Using the Online Editor
