@@ -9,6 +9,7 @@
        * [Amazon Web Services](server_setup/hosting/aws.md)
 * [The Kernel](kernel/README.md)
 * [Creating a Site](creating_a_site/README.md)
+* Using the Online Editor
 * [Putting Files Online](publishing/README.md)
    * A Simple Text File
    * HTML and Static Files
