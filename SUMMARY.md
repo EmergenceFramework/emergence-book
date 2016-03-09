@@ -26,5 +26,6 @@
    * Error Reporting
 * [Going to Production](production/README.md)
    * Backups
+   * Encryption
 * [Sharing your Code](sharing/README.md)
 
