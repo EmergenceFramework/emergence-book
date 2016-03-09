@@ -22,4 +22,5 @@
    * Dumping
    * Query Profiling
    * Logging
+   * Error Reporting
 
