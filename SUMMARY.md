@@ -21,4 +21,5 @@
 * [Debugging](debugging/README.md)
    * Dumping
    * Query Profiling
+   * Logging
 
