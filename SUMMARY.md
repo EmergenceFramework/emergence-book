@@ -16,6 +16,6 @@
    * [Using PHP classes](dynamic_pages/php_classes.md)
 * [Templates](templates/README.md)
    * [Creating a Template](templates/creating.md)
-* Models
+* [Models](models/README.md)
    * [Creating a Model](models/creating.md)
 
