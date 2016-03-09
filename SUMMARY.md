@@ -10,4 +10,5 @@
 * The Kernel
 * Create a Site
 * Putting Files Online
+* Dynamic Pages
 
