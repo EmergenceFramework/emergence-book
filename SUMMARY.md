@@ -11,7 +11,7 @@
 * Creating a Site
 * Putting Files Online
 * Dynamic Pages
-   * Create a Dynamic Page
+   * Creating a Dynamic Page
    * Handling a Whole Section
    * Using PHP classes
 
