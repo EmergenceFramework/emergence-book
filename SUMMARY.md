@@ -30,6 +30,7 @@
    * Database Caching
 * [Sharing your Code](sharing/README.md)
    * Allowing Inheritence
+   * Pushing to Git(Hub)
 * Troubleshooting
    * Log Files
    * PID Files
