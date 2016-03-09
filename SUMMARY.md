@@ -5,4 +5,5 @@
    * [Hosting](hosting.md)
        * [Digital Ocean](digital_ocean.md)
        * [Linode](linode.md)
+       * Google Compute Engine
 
