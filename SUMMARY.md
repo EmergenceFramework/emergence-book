@@ -10,8 +10,8 @@
 * [The Kernel](kernel/README.md)
 * [Creating a Site](creating_a_site/README.md)
 * [Putting Files Online](publishing/README.md)
-   * A Simple Text File
    * Using the Online Editor
+   * A Simple Text File
    * HTML and Static Files
    * [Uploading in Bulk](publishing/pushinging/uploading.md)
    * Using the Online Editor
