@@ -11,7 +11,7 @@
 * [Creating a Site](creating_a_site/README.md)
 * [Putting Files Online](publishing/README.md)
    * Using the Online Editor
-   * Editing Files via WebDAV
+   * [Editing Files via WebDAV](publishing/publishing/webdav.md)
    * A Simple Text File
    * HTML and Static Files
    * [Uploading in Bulk](publishing/pushinging/uploading.md)
