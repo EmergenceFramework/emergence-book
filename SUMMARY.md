@@ -29,6 +29,7 @@
    * Encryption
    * Database Caching
 * [Sharing your Code](sharing/README.md)
+   * Allowing Inheritence
 * Troubleshooting
    * Log Files
    * PID Files
