@@ -16,4 +16,5 @@
    * Using PHP classes
 * Templates
 * Models
+   * Creating a Model
 
