@@ -9,4 +9,5 @@
        * [Amazon Web Services](server_setup/hosting/aws.md)
 * The Kernel
 * Create a Site
+* Putting Files Online
 
