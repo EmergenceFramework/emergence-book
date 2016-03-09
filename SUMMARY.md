@@ -17,5 +17,5 @@
 * Templates
    * [Creating a Template](templates/creating.md)
 * Models
-   * Creating a Model
+   * [Creating a Model](models/creating.md)
 
