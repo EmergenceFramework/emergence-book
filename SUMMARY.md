@@ -9,7 +9,7 @@
        * [Amazon Web Services](server_setup/hosting/aws.md)
 * [The Kernel](kernel/README.md)
 * [Creating a Site](creating_a_site/README.md)
-* Putting Files Online
+* [Putting Files Online](publishing/README.md)
 * Dynamic Pages
    * [Creating a Dynamic Page](dynamic_pages/creating.md)
    * [Handling a Whole Section](dynamic_pages/sections.md)
