@@ -36,6 +36,7 @@
 * [Sharing your Code](sharing/README.md)
    * Allowing Inheritence
    * Pushing to Git(Hub)
+   * Release Practices
 * [Team Practices](teams/README.md)
 * Troubleshooting
    * Log Files
