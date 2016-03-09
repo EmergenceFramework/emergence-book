@@ -1,2 +1,2 @@
-# Linoe
+# Linode
 
