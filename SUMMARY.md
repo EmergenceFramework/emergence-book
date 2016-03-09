@@ -14,7 +14,7 @@
    * [Creating a Dynamic Page](dynamic_pages/creating.md)
    * [Handling a Whole Section](dynamic_pages/sections.md)
    * [Using PHP classes](dynamic_pages/php_classes.md)
-* Templates
+* [Templates](templates/README.md)
    * [Creating a Template](templates/creating.md)
 * Models
    * [Creating a Model](models/creating.md)
