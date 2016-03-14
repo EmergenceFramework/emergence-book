@@ -24,6 +24,7 @@
 * [Models](models/README.md)
    * [Creating a Model](models/creating.md)
    * [Publishing a Collection](models/collection.md)
+* Working with Email
 * [Debugging](debugging/README.md)
    * Dumping
    * Query Profiling
@@ -45,5 +46,4 @@
 * Roadmap
    * VFS
    * Kernel
-* Working with Email
 
