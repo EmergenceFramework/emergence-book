@@ -1,6 +1,6 @@
 # Introduction
 ## Why another framework?
-- We all need webapps
+- Already today, every organization needs an array of web applications serving them persistently from the cloud. This need has already started spreading to individuals too and soon persistent personal web applications will be as commonplace as smartphone apps.
 - Building on top of others' work should be effortless, as should sharing yours in-turn
 - Experimenting shouldn't cost anything, locally or in the open
 - Deploying an app: The forking problem
