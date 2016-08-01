@@ -8,7 +8,10 @@ If you are starting from a **fresh** Ubuntu 15.10 installation you can use this 
 ## Install service binaries {#service-binaries}
 These commands will update your system and then install all the packages required for Emergence:
 
-```language-bashuser@hostname ~ $ sudo apt-get update && sudo apt-get upgrade -yuser@hostname ~ $ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git python-software-properties python g++ make ruby-dev nodejs npm nodejs-legacy nginx php5-fpm php5-cli php5-apcu php5-mysql php5-gd php5-json php5-curl php5-intl php5-imagick mysql-server mysql-client gettext imagemagick postfixuser@hostname ~ $ sudo gem install compass```
+```
+user@hostname ~ $ sudo apt-get update && sudo apt-get upgrade -y
+user@hostname ~ $ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git python-software-properties python g++ make ruby-dev nodejs npm nodejs-legacy nginx php5-fpm php5-cli php5-apcu php5-mysql php5-gd php5-json php5-curl php5-intl php5-imagick mysql-server mysql-client gettext imagemagick postfixuser@hostname ~ $ sudo gem install compass
+```
 
 ## Stop and disable default service instances {#disable-services}
 Emergence will be configuring and launching nginx, mysql, and php5-fpm for us, so we need to get the default instances set up by Ubuntu out of the way:
