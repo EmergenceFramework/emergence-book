@@ -14,14 +14,16 @@ These commands will update your system and then install all the packages require
 
 ```language-bash
 user@hostname ~ $ sudo apt-get update && sudo apt-get upgrade -y
-user@hostname ~ $ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git python-software-properties python g++ make ruby-dev nodejs npm nodejs-legacy nginx php5-fpm php5-cli php5-apcu php5-mysql php5-gd php5-json php5-curl php5-intl php5-imagick mysql-server mysql-client gettext imagemagick postfixuser@hostname ~ $ sudo gem install compass
+user@hostname ~ $ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git python-software-properties python g++ make ruby-dev nodejs npm nodejs-legacy nginx php5-fpm php5-cli php5-apcu php5-mysql php5-gd php5-json php5-curl php5-intl php5-imagick mysql-server mysql-client gettext imagemagick postfix
+user@hostname ~ $ sudo gem install compass
 ```
 
 ## Stop and disable default service instances {#disable-services}
 Emergence will be configuring and launching nginx, mysql, and php5-fpm for us, so we need to get the default instances set up by Ubuntu out of the way:
 
 ```language-bash
-user@hostname ~ $ sudo service nginx stop && sudo update-rc.d -f nginx disableuser@hostname ~ $ sudo service php5-fpm stop && (echo "manual" | sudo tee /etc/init/php5-fpm.override)
+user@hostname ~ $ sudo service nginx stop && sudo update-rc.d -f nginx disable
+user@hostname ~ $ sudo service php5-fpm stop && (echo "manual" | sudo tee /etc/init/php5-fpm.override)
 user@hostname ~ $ sudo service mysql stop && (echo "manual" | sudo tee /etc/init/mysql.override)
 ```
 
@@ -38,7 +40,8 @@ Ubuntu comes with a low limit of 32MB for shared memory. Emergence relies heavil
 
 ```language-bash
 user@hostname ~ $ echo -e "kernel.shmmax = 268435456\nkernel.shmall = 65536" | sudo tee -a /etc/sysctl.d/60-shmmax.conf
-user@hostname ~ $ sudo sysctl -w kernel.shmmax=268435456 kernel.shmall=65536user@hostname ~ $ echo -e "apcu.shm_size=128M\napc.shm_size=128M" | sudo tee -a /etc/php5/mods-available/apcu.ini
+user@hostname ~ $ sudo sysctl -w kernel.shmmax=268435456 kernel.shmall=65536
+user@hostname ~ $ echo -e "apcu.shm_size=128M\napc.shm_size=128M" | sudo tee -a /etc/php5/mods-available/apcu.ini
 ```
 
 ## Install Emergence from GitHub {#emergence-github}

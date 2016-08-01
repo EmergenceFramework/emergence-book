@@ -55,7 +55,8 @@ Ubuntu comes with a low limit of 32MB for shared memory. Emergence relies heavil
 
 ```language-bash
 user@hostname ~ $ echo -e "kernel.shmmax = 268435456\nkernel.shmall = 65536" | sudo tee -a /etc/sysctl.d/60-shmmax.conf
-user@hostname ~ $ sudo sysctl -w kernel.shmmax=268435456 kernel.shmall=65536user@hostname ~ $ echo -e "apcu.shm_size=128M\napc.shm_size=128M" | sudo tee -a /etc/php5/mods-available/apcu.ini
+user@hostname ~ $ sudo sysctl -w kernel.shmmax=268435456 kernel.shmall=65536
+user@hostname ~ $ echo -e "apcu.shm_size=128M\napc.shm_size=128M" | sudo tee -a /etc/php5/mods-available/apcu.ini
 ```
 
 ## Install Emergence from GitHub {#emergence-github}
