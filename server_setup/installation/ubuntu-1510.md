@@ -3,7 +3,11 @@
 ## Overview {#overview}
 
 ### Quick install {#quickinstall}
-If you are starting from a **fresh** Ubuntu 15.10 installation you can use this script to run all the following setup commandsall at once, and then skip down to **[Create a site](#create-a-site) or [Secure your installation](#secure)**.```language-bashuser@hostname ~ $ wget http://emr.ge/dist/ubuntu/quickinstall-15.10.sh -O - | sudo sh```
+If you are starting from a **fresh** Ubuntu 15.10 installation you can use this script to run all the following setup commandsall at once, and then skip down to **[Create a site](#create-a-site) or [Secure your installation](#secure)**.
+
+```language-bash
+user@hostname ~ $ wget http://emr.ge/dist/ubuntu/quickinstall-15.10.sh -O - | sudo sh
+```
 
 ## Install service binaries {#service-binaries}
 These commands will update your system and then install all the packages required for Emergence:
