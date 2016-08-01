@@ -60,7 +60,7 @@ user@hostname ~ $ sudo npm install -g git+https://github.com/JarvusInnovations/E
 
 ```language-bash
 user@hostname ~ $ sudo wget http://emr.ge/dist/debian/upstart -O /etc/init/emergence-kernel.conf
-user@hostname ~ $ sudo start emergence-kernel
+user@hostname ~ $ sudo service emergence-kernel start
 ```
 
 ## Create a site {#create-a-site}
@@ -77,7 +77,7 @@ Once you confirm that you are able to access the control panel, use the `htpassw
 user@hostname ~ $ sudo npm install -g htpasswd
 user@hostname ~ $ sudo htpasswd -D /emergence/admins.htpasswd admin
 user@hostname ~ $ [[[sudo htpasswd -s /emergence/admins.htpasswd ]]]myusername
-user@hostname ~ $ sudo restart emergence-kernel
+user@hostname ~ $ sudo service emergence-kernel restart
 ```
 
 ## (Optional) install Sencha CMD {#sencha-cmd}
