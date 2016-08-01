@@ -8,6 +8,7 @@
         * [Google Compute Engine](server_setup/hosting/gce.md)
         * [Amazon Web Services](server_setup/hosting/aws.md)
     * Installation
+        * [Ubuntu 16.04](server_setup/installation/ubuntu-1604.md)
         * [Ubuntu 15.10](server_setup/installation/ubuntu-1510.md)
         * [Ubuntu 14.04](server_setup/installation/ubuntu-1404.md)
 * [The Kernel](kernel/README.md)
