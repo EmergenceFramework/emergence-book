@@ -9,6 +9,7 @@
         * [Amazon Web Services](server_setup/hosting/aws.md)
     * Installation
         * [Ubuntu 15.10](server_setup/installation/ubuntu-1510.md)
+        * [Ubuntu 14.04](server_setup/installation/ubuntu-1404.md)
 * [The Kernel](kernel/README.md)
 * [Creating a Site](creating_a_site/README.md)
 * [Putting Files Online](publishing/README.md)
