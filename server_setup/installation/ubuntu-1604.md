@@ -4,7 +4,7 @@
 
 ### Quick install
 
-If you are starting from a **fresh** Ubuntu 16.04 installation you can use this script to run all the following setup commandsall at once, and then skip down to **[Create a site](#create-a-site) or [Secure your installation](#secure)**.
+If you are starting from a **fresh** Ubuntu 16.04 installation you can use this script to run all the following setup commandsall at once, and then skip down to **[Create a site](#create-a-site) or [Secure your installation](#secure-your-installation)**.
 
 ```language-bash
 user@hostname ~ $ wget http://emr.ge/dist/ubuntu/quickinstall-16.04.sh -O - | sudo sh
