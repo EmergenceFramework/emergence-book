@@ -59,8 +59,9 @@ user@hostname ~ $ sudo npm install -g git+https://github.com/JarvusInnovations/E
 `npm -g` installed the kernel's startup script to `/usr/bin/emergence-kernel`. You can now launch it manually, or install the init script:
 
 ```language-bash
-user@hostname ~ $ sudo wget http://emr.ge/dist/debian/upstart -O /etc/init/emergence-kernel.conf
+user@hostname ~ $ sudo wget http://emr.ge/dist/ubuntu/emergence-kernel.service -O /etc/systemd/system/emergence-kernel.service
 user@hostname ~ $ sudo service emergence-kernel start
+user@hostname ~ $ sudo systemctl enable emergence-kernel
 ```
 
 ## Create a site {#create-a-site}
