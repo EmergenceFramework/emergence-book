@@ -79,18 +79,3 @@ user@hostname ~ $ sudo npm install -g htpasswd
 user@hostname ~ $ sudo htpasswd -D /emergence/admins.htpasswd admin
 user@hostname ~ $ sudo htpasswd -s /emergence/admins.htpasswd myusername
 user@hostname ~ $ sudo service emergence-kernel restart
-```
-
-## (Optional) install Sencha CMD
-
-Enter <kbd>/usr/local/bin</kbd> as the install path when prompted by Sencha's CMD installer:
-
-```language-bash
-user@hostname ~ $ sudo apt-get install openjdk-7-jre ruby1.9.3 unzip
-user@hostname ~ $ wget http://cdn.sencha.com/cmd/3.1.2.342/SenchaCmd-3.1.2.342-linux-x64.run.zip
-user@hostname ~ $ unzip SenchaCmd-*-linux-x64.run.zip
-user@hostname ~ $ chmod +x SenchaCmd-*-linux-x64.run
-user@hostname ~ $ sudo ./SenchaCmd-*-linux-x64.run
-user@hostname ~ $ sudo mkdir /usr/local/bin/Sencha/Cmd/repo
-user@hostname ~ $ sudo chown www-data:www-data -R /usr/local/bin/Sencha/Cmd/repo
-```
