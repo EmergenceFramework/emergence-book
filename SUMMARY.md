@@ -50,4 +50,6 @@
 * Roadmap
     * VFS
     * Kernel
+* Recipies
+    * [Skeletons from Scratch](skeletons-from-scratch.md)
 
