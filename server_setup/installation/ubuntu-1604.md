@@ -18,7 +18,7 @@ is not yet supported, so PHP 5.6 must be installed from a PPA:
 ```language-bash
 user@hostname ~ $ sudo add-apt-repository ppa:ondrej/php
 user@hostname ~ $ sudo apt-get update && sudo apt-get upgrade -y
-user@hostname ~ $ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git python-software-properties python g++ make ruby-dev nodejs nodejs-legacy npm nginx php5.6-fpm php5.6-cli php5.6-mysql php5.6-gd php5.6-json php5.6-curl php5.6-intl php5.6-mbstring php5.6-imagick mysql-server mysql-client gettext imagemagick postfix ruby-compass
+user@hostname ~ $ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git python-software-properties python g++ make ruby-dev nodejs nodejs-legacy npm nginx php5.6-fpm php5.6-cli php5.6-mysql php5.6-gd php5.6-json php5.6-curl php5.6-intl php5.6-mbstring php5.6-imagick php5.6-xml mysql-server mysql-client gettext imagemagick postfix ruby-compass
 user@hostname ~ $ sudo apt-get --no-install-recommends install php-apcu
 ```
 
