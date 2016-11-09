@@ -51,5 +51,5 @@
     * VFS
     * Kernel
 * Recipies
-    * [Skeletons from Scratch](skeletons-from-scratch.md)
+    * [Bootstrap a Site from Git](skeletons-from-scratch.md)
 
