@@ -37,7 +37,7 @@ user@hostname ~ $ sudo service mysql stop && sudo update-rc.d -f mysql disable
 AppArmor must be configured to allow MySQL to use Emergence files instead of the defaults:
 
 ```language-bash
-user@hostname ~ $ echo -e "/emergence/services/etc/my.cnf r,\n/emergence/services/data/mysql/ r,\n/emergence/services/data/mysql/** rwk,\n/emergence/services/run/mysqld/mysqld.sock w,\n/emergence/services/run/mysqld/mysqld.pid rw,\n/emergence/services/run/mysqld/mysqld.sock.lock rw," | sudo tee -a /etc/apparmor.d/local/usr.sbin.mysqld
+user@hostname ~ $ echo -e "/emergence/services/etc/my.cnf r,\n/emergence/services/data/mysql/ r,\n/emergence/services/data/mysql/** rwk,\n/emergence/services/logs/mysql/ r,\n/emergence/services/logs/mysql/** rwk,\n/emergence/services/run/mysqld/mysqld.sock w,\n/emergence/services/run/mysqld/mysqld.pid rw,\n/emergence/services/run/mysqld/mysqld.sock.lock rw," | sudo tee -a /etc/apparmor.d/local/usr.sbin.mysqld
 user@hostname ~ $ sudo service apparmor restart
 ```
 
