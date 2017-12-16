@@ -54,7 +54,7 @@ user@hostname ~ $ echo -e "apc.shm_size=128M" | sudo tee -a /etc/php5/mods-avail
 Clone Emergence into your home directory, then use `npm` to install the package and its dependencies:
 
 ```language-bash
-user@hostname ~ $ sudo npm install -g git+https://github.com/JarvusInnovations/Emergence
+user@hostname ~ $ sudo npm install -g emergence
 ```
 
 ## Start Emergence
