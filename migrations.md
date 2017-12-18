@@ -50,3 +50,6 @@ All output is captured and reported on after a migration is executed but not (cu
 The best workflow for debugging a migration is to dump and reload all application tables (including `_e_migrations` but excluding `_e_file*` VFS tables if present) between each execution.
 
 During the development though, you might find it helpful to call `$resetMigrationStatus()` at the beggining of your script or `return static::STATUS_DEBUG` to erase the `_e_migrations` record that would prevent you from running it over and over again.
+
+### Example migrations
+
