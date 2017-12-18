@@ -27,29 +27,26 @@
 * [Models](models/README.md)
   * [Creating a Model](models/creating.md)
   * [Publishing a Collection](models/collection.md)
+* Migrations
+* Migrations
 * [Working with Email](kernel/working-with-email.md)
 * [Debugging](debugging/README.md)
   * Dumping
   * Query Profiling
   * Logging
   * Error Reporting
-* [Going to Production](production/README.md)
-  * Backups
-  * Encryption
-  * Database Caching
 * [Sharing your Code](sharing/README.md)
   * Allowing Inheritence
   * Pushing to Git\(Hub\)
   * Release Practices
+* [Going to Production](production/README.md)
+  * Backups
+  * Encryption
+  * Database Caching
 * [Team Practices](teams/README.md)
 * Troubleshooting
   * Log Files
   * PID Files
   * Resetting Runtime
-* Roadmap
-  * VFS
-  * Kernel
-* [Recipes](kernel/recipes.md)
-  * [Bootstrap a Site from Git](recipes/skeletons-from-scratch.md)
-  * [Make a Model Searchable by Tags](recipes/make-a-model-searchable-by-tags.md)
+* [Migrations](migrations/README.md)
 
