@@ -55,9 +55,9 @@ The best workflow for debugging a migration is to dump and reload all applicatio
 
 During the development though, you might find it helpful to call `$resetMigrationStatus()` at the beggining of your script or `return static::STATUS_DEBUG` to erase the `_e_migrations` record that would prevent you from running it over and over again.
 
-### Example migrations
+## Example migrations
 
-#### Add a column
+### Add a column
 
 This migration from `slate-cbl` is about as simple as it gets:
 
@@ -87,7 +87,7 @@ static::addColumn(Task::$tableName, 'ClonedTaskID', 'int unsigned NULL default N
 return static::STATUS_EXECUTED;
 ```
 
-#### Move column to parent record
+### Move column to parent record
 
 This migration, also from `slate-cbl`, is about as complex as it gets:
 
