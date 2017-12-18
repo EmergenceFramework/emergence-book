@@ -10,7 +10,6 @@ The status of each migration script is tracked in the `_e_migrations` table. New
 
 A user interface is available for Developer+ users online at `/site-admin/migrations`. From here you can view a list of all **pending**, **started**, **skipped**, **failed**, and **executed** migrations and execute any that are pending.
 
-## Building a migration
 ## Philosophy
 
 Migration scripts in emergence don't have the usually `up`/`down` workflow that migration frameworks usually provide. Instead, it is expected that a website/database be snapshotted before migrations are run as this provides a more reliable recovery process in the case of failed migrations. Each script implements only one routine: upgrade if needed. The goal of every migration script is to first check if it can do nothing and return the status **skipped**, and then execute the migration and return the status **executed** or **failed**. A migration should be safe to run multiple times and return **skipped** when it can test that it has been run already.
