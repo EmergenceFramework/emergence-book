@@ -47,5 +47,4 @@
   * Log Files
   * PID Files
   * Resetting Runtime
-* [Migrations](migrations/README.md)
 
