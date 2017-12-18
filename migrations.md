@@ -35,6 +35,8 @@ Additionally, the migration runs in the scope of a member of the `Emergence\Site
 
 - `static::tableExists($tableName)`
 - `static::columnExists($tableName, $columnName)`
+- `static::getColumns($tableName)`
+- `static::getColumnNames($tableName)`
 - `static::getColumn($tableName, $columnName)`
 - `static::getColumnType($tableName, $columnName)`
 - `static::getColumnKey($tableName, $columnName)`
@@ -42,6 +44,9 @@ Additionally, the migration runs in the scope of a member of the `Emergence\Site
 - `static::getColumnIsNullable($tableName, $columnName)`
 - `static::getConstraints($tableName)`
 - `static::getConstraint($tableName, $constraintName)`
+- `static::addColumn($tableName, $columnName, $definition, $position = null)`
+- `static::addIndex($tableName, $indexName, array $columns = [], $type = null)`
+- `static::dropColumn($tableName, $columnName)`
 
 All output is captured and reported on after a migration is executed but not (currently) saved.
 
