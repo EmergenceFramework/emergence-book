@@ -28,6 +28,7 @@
   * [Creating a Model](models/creating.md)
   * [Publishing a Collection](models/collection.md)
 * [Migrations](migrations/README.md)
+* [Localization](localization.md)
 * [Working with Email](kernel/working-with-email.md)
 * [Debugging](debugging/README.md)
   * Dumping
@@ -43,8 +44,5 @@
   * Encryption
   * Database Caching
 * [Team Practices](teams/README.md)
-* Troubleshooting
-  * Log Files
-  * PID Files
-  * Resetting Runtime
+* Localization
 
