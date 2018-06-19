@@ -44,5 +44,4 @@
   * Encryption
   * Database Caching
 * [Team Practices](teams/README.md)
-* Localization
 
