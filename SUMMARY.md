@@ -28,7 +28,7 @@
   * [Creating a Model](models/creating.md)
   * [Publishing a Collection](models/collection.md)
 * [Migrations](migrations/README.md)
-* [Localization](localization.md)
+* [Localization](localization/README.md)
 * [Working with Email](kernel/working-with-email.md)
 * [Debugging](debugging/README.md)
   * Dumping
