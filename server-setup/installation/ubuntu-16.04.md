@@ -6,7 +6,7 @@
 
 If you are starting from a **fresh** Ubuntu 16.04 installation you can use this script to run all the following setup commandsall at once, and then skip down to [**Create a site**](ubuntu-16.04.md#create-a-site) **or** [**Secure your installation**](ubuntu-16.04.md#secure-your-installation).
 
-```text
+```bash
 user@hostname ~ $ wget http://emr.ge/dist/ubuntu/quickinstall-16.04.sh -O - | sudo sh
 ```
 
@@ -14,7 +14,7 @@ user@hostname ~ $ wget http://emr.ge/dist/ubuntu/quickinstall-16.04.sh -O - | su
 
 These commands will update your system and then install all the packages required for Emergence. Currently PHP 7 is not yet supported, so PHP 5.6 must be installed from a PPA:
 
-```text
+```bash
 user@hostname ~ $ sudo add-apt-repository ppa:ondrej/php
 user@hostname ~ $ sudo apt-get update && sudo apt-get upgrade -y
 user@hostname ~ $ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git python-software-properties python g++ make ruby-dev nodejs nodejs-legacy npm nginx php5.6-fpm php5.6-cli php5.6-mysql php5.6-gd php5.6-json php5.6-curl php5.6-intl php5.6-mbstring php5.6-imagick php5.6-xml mysql-server mysql-client gettext imagemagick postfix ruby-compass
@@ -25,7 +25,7 @@ user@hostname ~ $ sudo apt-get --no-install-recommends install php-apcu
 
 Emergence will be configuring and launching nginx, mysql, and php5.6-fpm for us, so we need to get the default instances set up by Ubuntu out of the way:
 
-```text
+```bash
 user@hostname ~ $ sudo service nginx stop && sudo update-rc.d -f nginx disable
 user@hostname ~ $ sudo service php5.6-fpm stop && sudo update-rc.d -f php5.6-fpm disable
 user@hostname ~ $ sudo service mysql stop && sudo update-rc.d -f mysql disable
@@ -35,7 +35,7 @@ user@hostname ~ $ sudo service mysql stop && sudo update-rc.d -f mysql disable
 
 AppArmor must be configured to allow MySQL to use Emergence files instead of the defaults:
 
-```text
+```bash
 user@hostname ~ $ echo -e "/emergence/services/etc/my.cnf r,\n/emergence/services/data/mysql/ r,\n/emergence/services/data/mysql/** rwk,\n/emergence/services/logs/mysql/ r,\n/emergence/services/logs/mysql/** rwk,\n/emergence/services/run/mysqld/mysqld.sock w,\n/emergence/services/run/mysqld/mysqld.pid rw,\n/emergence/services/run/mysqld/mysqld.sock.lock rw," | sudo tee -a /etc/apparmor.d/local/usr.sbin.mysqld
 user@hostname ~ $ sudo service apparmor restart
 ```
@@ -44,7 +44,7 @@ user@hostname ~ $ sudo service apparmor restart
 
 Ubuntu comes with a low limit of 32MB for shared memory. Emergence relies heavily on APC caching and needs kernel.shmmax increased to a more flexible amount. We'll use 128MB:
 
-```text
+```bash
 user@hostname ~ $ echo -e "apc.shm_size=128M" | sudo tee -a /etc/php5/mods-available/apcu.ini
 ```
 
@@ -52,7 +52,7 @@ user@hostname ~ $ echo -e "apc.shm_size=128M" | sudo tee -a /etc/php5/mods-avail
 
 Clone Emergence into your home directory, then use `npm` to install the package and its dependencies:
 
-```text
+```bash
 user@hostname ~ $ sudo npm install -g emergence
 ```
 
@@ -60,7 +60,7 @@ user@hostname ~ $ sudo npm install -g emergence
 
 `npm -g` installed the kernel's startup script to `/usr/bin/emergence-kernel`. You can now launch it manually, or install the init script:
 
-```text
+```bash
 user@hostname ~ $ sudo wget http://emr.ge/dist/ubuntu/emergence-kernel.service -O /etc/systemd/system/emergence-kernel.service
 user@hostname ~ $ sudo service emergence-kernel start
 user@hostname ~ $ sudo systemctl enable emergence-kernel

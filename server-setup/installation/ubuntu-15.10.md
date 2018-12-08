@@ -6,7 +6,7 @@
 
 If you are starting from a **fresh** Ubuntu 15.10 installation you can use this script to run all the following setup commandsall at once, and then skip down to [**Create a site**](ubuntu-15.10.md#create-a-site) **or** [**Secure your installation**](ubuntu-15.10.md#secure).
 
-```text
+```bash
 user@hostname ~ $ wget http://emr.ge/dist/ubuntu/quickinstall-15.10.sh -O - | sudo sh
 ```
 
@@ -14,7 +14,7 @@ user@hostname ~ $ wget http://emr.ge/dist/ubuntu/quickinstall-15.10.sh -O - | su
 
 These commands will update your system and then install all the packages required for Emergence:
 
-```text
+```bash
 user@hostname ~ $ sudo apt-get update && sudo apt-get upgrade -y
 user@hostname ~ $ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git python-software-properties python g++ make ruby-dev nodejs npm nodejs-legacy nginx php5-fpm php5-cli php5-apcu php5-mysql php5-gd php5-json php5-curl php5-intl php5-imagick mysql-server mysql-client gettext imagemagick postfix
 user@hostname ~ $ sudo gem install compass
@@ -24,7 +24,7 @@ user@hostname ~ $ sudo gem install compass
 
 Emergence will be configuring and launching nginx, mysql, and php5-fpm for us, so we need to get the default instances set up by Ubuntu out of the way:
 
-```text
+```bash
 user@hostname ~ $ sudo service nginx stop && sudo update-rc.d -f nginx disable
 user@hostname ~ $ sudo service php5-fpm stop && (echo "manual" | sudo tee /etc/init/php5-fpm.override)
 user@hostname ~ $ sudo service mysql stop && (echo "manual" | sudo tee /etc/init/mysql.override)
@@ -34,7 +34,7 @@ user@hostname ~ $ sudo service mysql stop && (echo "manual" | sudo tee /etc/init
 
 AppArmor must be configured to allow MySQL to use Emergence files instead of the defaults:
 
-```text
+```bash
 user@hostname ~ $ echo -e "/emergence/services/etc/my.cnf r,\n/emergence/services/data/mysql/ r,\n/emergence/services/data/mysql/** rwk,\n/emergence/services/run/mysqld/mysqld.sock w,\n/emergence/services/run/mysqld/mysqld.pid rw," | sudo tee -a /etc/apparmor.d/local/usr.sbin.mysqld
 user@hostname ~ $ sudo /etc/init.d/apparmor reload
 ```
@@ -43,7 +43,7 @@ user@hostname ~ $ sudo /etc/init.d/apparmor reload
 
 Ubuntu comes with a low limit of 32MB for shared memory. Emergence relies heavily on APC caching and needs kernel.shmmax increased to a more flexible amount. We'll use 128MB:
 
-```text
+```bash
 user@hostname ~ $ echo -e "kernel.shmmax = 268435456\nkernel.shmall = 65536" | sudo tee -a /etc/sysctl.d/60-shmmax.conf
 user@hostname ~ $ sudo sysctl -w kernel.shmmax=268435456 kernel.shmall=65536
 user@hostname ~ $ echo -e "apcu.shm_size=128M\napc.shm_size=128M" | sudo tee -a /etc/php5/mods-available/apcu.ini
@@ -53,7 +53,7 @@ user@hostname ~ $ echo -e "apcu.shm_size=128M\napc.shm_size=128M" | sudo tee -a 
 
 Clone Emergence into your home directory, then use `npm` to install the package and its dependencies:
 
-```text
+```bash
 user@hostname ~ $ sudo npm install -g git+https://github.com/JarvusInnovations/Emergence
 ```
 
@@ -61,7 +61,7 @@ user@hostname ~ $ sudo npm install -g git+https://github.com/JarvusInnovations/E
 
 `npm -g` installed the kernel's startup script to `/usr/bin/emergence-kernel`. You can now launch it manually, or install the init script:
 
-```text
+```bash
 user@hostname ~ $ sudo wget http://emr.ge/dist/debian/upstart -O /etc/init/emergence-kernel.conf
 user@hostname ~ $ sudo start emergence-kernel
 ```
@@ -76,7 +76,7 @@ When prompted, log in with the username and password admin / admin.
 
 Once you confirm that you are able to access the control panel, use the `htpasswd` tool provided in npm to delete the default admin account and create your own. Then restart the Emergence kernel to apply the changes:
 
-```text
+```bash
 user@hostname ~ $ sudo npm install -g htpasswd
 user@hostname ~ $ sudo htpasswd -D /emergence/admins.htpasswd admin
 user@hostname ~ $ [[[sudo htpasswd -s /emergence/admins.htpasswd ]]]myusername
@@ -87,7 +87,7 @@ user@hostname ~ $ sudo restart emergence-kernel
 
 Enter /usr/local/bin as the install path when prompted by Sencha's CMD installer:
 
-```text
+```bash
 user@hostname ~ $ sudo apt-get install openjdk-7-jre ruby1.9.3 unzip
 user@hostname ~ $ wget http://cdn.sencha.com/cmd/3.1.2.342/SenchaCmd-3.1.2.342-linux-x64.run.zip
 user@hostname ~ $ unzip SenchaCmd-*-linux-x64.run.zip
