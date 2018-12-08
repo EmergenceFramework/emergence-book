@@ -1,2 +1,0 @@
-# Editing Files via WebDAV
-

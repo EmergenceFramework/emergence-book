@@ -1,2 +1,0 @@
-# Handling a Whole Section
-

@@ -1,2 +1,0 @@
-# A Simple Text File
-
