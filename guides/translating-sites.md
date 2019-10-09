@@ -80,4 +80,3 @@ If the browser or client application provides an Accept-Language header, Emergen
 ```text
 Emergence\Locale::$default = 'en_US.utf8';
 ```
-

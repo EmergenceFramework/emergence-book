@@ -22,6 +22,3 @@
    _Be sure to substitute _`my-site-handle`_ at the end_
 
 5. Check if the imported site offers a `php-config/Git.config.d` file mapping the source repository into the site tree. It may be wrapped in an `if` condition checking the site handle that must be made to match the current site to activate it. Visit `/git/status` to initialize the repository link to enable pushing/pulling ongoing changes to the git repository
-
-
-

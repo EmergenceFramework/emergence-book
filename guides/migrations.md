@@ -172,4 +172,3 @@ static::dropColumn(StudentTask::$tableName, 'SectionID');
 // finish
 return static::STATUS_EXECUTED;
 ```
-
