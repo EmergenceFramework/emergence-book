@@ -1,7 +1,5 @@
 # Getting Started with Development
 
-Great example of how to frame: https://help.github.com/en/articles/creating-a-docker-container-action
-
 This guide shows you the minimal steps required run an emergence project locally, make changes to it, and see the result.
 
 ## In this article
