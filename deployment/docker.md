@@ -20,7 +20,7 @@ env $(cat results/last_build.env | xargs) bash -c 'hab pkg export docker results
 
 ## Building from a Dockerfile
 
-This Dockerfile can be used as-is for any emergence project repository with `habitat/plan.sh` and `habitat/composite/plan.sh` in place per the [Deploy a Site with Chef Habitat](./habitat.md) guide. Replace every occurance of the placeholder `myorigin` with any origin name you'd like to prefix your built packages with. In this scenario it need not be externally registered with any bldr server.
+This Dockerfile can be used as-is for any emergence project repository with `habitat/plan.sh` and `habitat/composite/plan.sh` in place per the [Deploy a Site with Chef Habitat](./habitat.md) guide. Replace every occurance of the placeholder `myorigin` with any origin name you'd like to prefix your built packages with. In this scenario it need not be externally registered with any bldr server. There are also several occurances of the placeholder `myapp` that you should replace as well.
 
 ```Dockerfile
 FROM jarvus/habitat-compose:latest as habitat
@@ -66,8 +66,8 @@ RUN hab pkg install /hab/cache/artifacts/$HAB_ORIGIN-* \
 
 
 # configure persistent volumes
-RUN hab pkg exec core/coreutils mkdir -p /hab/svc/{mysql,myapp}/data \
-    && hab pkg exec core/coreutils chown hab:hab -R /hab/svc/{mysql,myapp}/data
+RUN hab pkg exec core/coreutils mkdir -p '/hab/svc/mysql/data' '/hab/svc/myapp/data' \
+    && hab pkg exec core/coreutils chown hab:hab -R '/hab/svc/mysql/data' '/hab/svc/myapp/data'
 
 VOLUME ["/hab/svc/mysql/data", "/hab/svc/myapp/data"]
 
