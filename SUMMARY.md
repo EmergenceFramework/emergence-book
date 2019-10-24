@@ -3,6 +3,9 @@
 * [Introduction](README.md)
 * Development
   * [Getting Started](development/getting_started.md)
+* Deployment
+  * [Deploy a Site with Chef Habitat](deployment/habitat.md)
+  * [Deploy a Site with Docker](deployment/docker.md)
 * Guides
   * [Creating a Dynamic Page](guides/creating-a-dynamic-page.md)
   * [Make a Model Searchable by Tags](guides/make-a-model-searchable-by-tags.md)
