@@ -84,3 +84,20 @@ docker build . \
     --build-arg HAB_LICENSE=accept-no-persist \
     -t myorigin/myapp
 ```
+
+The container could then be run like this:
+
+```bash
+docker run \
+    --name myapp \
+    -d \
+    -p 80:80 \
+    -e HAB_LICENSE=accept \
+    myorigin/myapp
+```
+
+Verify service status:
+
+```bash
+docker exec myapp hab svc status
+```
