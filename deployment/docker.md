@@ -33,12 +33,12 @@ RUN hab origin key generate
 COPY habitat/plan.sh /habitat/plan.sh
 RUN hab pkg install \
     --channel=emergence-studio-0.6 \
-    $({ cat '/habitat/plan.sh' && echo 'echo "${pkg_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
+    $({ cat '/habitat/plan.sh' && echo && echo 'echo "${pkg_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
     && hab pkg exec core/coreutils rm -rf /hab/{artifacts,src}/
 # pre-layer all external runtime composite deps
 COPY habitat/composite/plan.sh /habitat/composite/plan.sh
 RUN hab pkg install \
-    $({ cat '/habitat/composite/plan.sh' && echo 'echo "${pkg_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
+    $({ cat '/habitat/composite/plan.sh' && echo && echo 'echo "${pkg_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
     && hab pkg exec core/coreutils rm -rf /hab/{artifacts,src}/
 
 
@@ -46,11 +46,11 @@ FROM habitat as projector
 # pre-layer all build-time plan deps
 RUN hab pkg install \
     core/hab-plan-build \
-    $({ cat '/habitat/plan.sh' && echo 'echo "${pkg_build_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
+    $({ cat '/habitat/plan.sh' && echo && echo 'echo "${pkg_build_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
     && hab pkg exec core/coreutils rm -rf /hab/{artifacts,src}/
 # pre-layer all build-time composite deps
 RUN hab pkg install \
-    $({ cat '/habitat/composite/plan.sh' && echo 'echo "${pkg_build_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
+    $({ cat '/habitat/composite/plan.sh' && echo && echo 'echo "${pkg_build_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
     && hab pkg exec core/coreutils rm -rf /hab/{artifacts,src}/
 # build application
 COPY . /src
