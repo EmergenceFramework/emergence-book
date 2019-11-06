@@ -71,7 +71,7 @@ The `--recursive` option is used so that any submodule repositories are also clo
     On any system, launch a studio with:
 
     ```bash
-    HAB_DOCKER_OPTS="-p 7080:80 -p 3306:3306" \
+    HAB_DOCKER_OPTS="-p 7080:80 -p 3306:3306 --name emergence-studio" \
         hab studio enter -D
     ```
 
