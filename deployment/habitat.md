@@ -38,8 +38,8 @@ do_before() {
 
 do_build() {
     pushd "${PLAN_CONTEXT}/../" > /dev/null
-    build_tree_hash="$(git holo project --working emergence-site)" # use working tree
-    # build_tree_hash="$(git holo project --ref="v${pkg_version}" emergence-site)" # use version tag
+    build_tree_hash="$(git holo project --fetch --working emergence-site)" # use working tree
+    # build_tree_hash="$(git holo project --fetch --ref="v${pkg_version}" emergence-site)" # use version tag
     popd > /dev/null
 }
 
