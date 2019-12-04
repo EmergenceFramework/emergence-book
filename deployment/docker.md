@@ -10,7 +10,6 @@ The former lets you stay out of the weeds of Docker container builds and provide
 ## Building from Habitat plans
 
 ```bash
-export HAB_BLDR_CHANNEL="emergence-studio-0.6"
 export HAB_ORIGIN="myorigin"
 
 hab pkg build .
@@ -32,7 +31,6 @@ RUN hab origin key generate
 # pre-layer all external runtime plan deps (pulling from pre-release channel)
 COPY habitat/plan.sh /habitat/plan.sh
 RUN hab pkg install \
-    --channel=emergence-studio-0.6 \
     $({ cat '/habitat/plan.sh' && echo && echo 'echo "${pkg_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
     && hab pkg exec core/coreutils rm -rf /hab/{artifacts,src}/
 # pre-layer all external runtime composite deps
