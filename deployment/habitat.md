@@ -44,8 +44,21 @@ do_build() {
 }
 
 do_install() {
+  build_line "Installing site"
   mkdir "${pkg_prefix}/site"
   git archive --format=tar "${build_tree_hash}" | (cd "${pkg_prefix}/site" && tar xf -)
+
+  build_line "Installing web root"
+  mkdir -p "${pkg_prefix}/web/public"
+  cp -rv "$(pkg_path_for emergence/php-runtime)/web"/* "${pkg_prefix}/web/"
+
+  build_line "Generating initialize.php wrapper"
+  cat > "${pkg_prefix}/web/initialize.php" <<- EOM
+<?php
+
+require('${pkg_svc_config_path}/initialize.php');
+EOM
+
 }
 
 do_build_config() {
