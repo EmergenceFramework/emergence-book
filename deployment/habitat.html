@@ -327,57 +327,57 @@ pkg_origin=myorigin
 pkg_version=<span class="hljs-string">&quot;0.1.0&quot;</span>
 pkg_maintainer=<span class="hljs-string">&quot;First Last &lt;human@example.org&gt;&quot;</span>
 pkg_build_deps=(
-    jarvus/hologit
-    jarvus/toml-merge
+  jarvus/hologit
+  jarvus/toml-merge
 )
 pkg_deps=(
-    emergence/php-runtime
+  emergence/php-runtime
 )
 
 
 pkg_binds=(
-    [database]=<span class="hljs-string">&quot;port username password&quot;</span>
+  [database]=<span class="hljs-string">&quot;port username password&quot;</span>
 )
 
 pkg_exports=(
-    [port]=network.port
+  [port]=network.port
 )
 
 
 <span class="hljs-function"><span class="hljs-title">do_setup_environment</span></span>() {
-    <span class="hljs-built_in">set</span>_runtime_env <span class="hljs-_">-f</span> PHPRC <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_svc_config_install_path}</span>&quot;</span>
+  <span class="hljs-built_in">set</span>_runtime_env <span class="hljs-_">-f</span> PHPRC <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_svc_config_install_path}</span>&quot;</span>
 }
 
 <span class="hljs-function"><span class="hljs-title">do_before</span></span>() {
-    <span class="hljs-comment"># adjust PHP_EXTENSION_DIR after env is initially built</span>
-    <span class="hljs-built_in">set</span>_runtime_env <span class="hljs-_">-f</span> PHP_EXTENSION_DIR <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_svc_config_install_path}</span>/extensions-<span class="hljs-variable">${PHP_ZEND_API_VERSION}</span>&quot;</span>
+  <span class="hljs-comment"># adjust PHP_EXTENSION_DIR after env is initially built</span>
+  <span class="hljs-built_in">set</span>_runtime_env <span class="hljs-_">-f</span> PHP_EXTENSION_DIR <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_svc_config_install_path}</span>/extensions-<span class="hljs-variable">${PHP_ZEND_API_VERSION}</span>&quot;</span>
 }
 
 <span class="hljs-function"><span class="hljs-title">do_build</span></span>() {
-    <span class="hljs-built_in">pushd</span> <span class="hljs-string">&quot;<span class="hljs-variable">${PLAN_CONTEXT}</span>/../&quot;</span> &gt; /dev/null
-    build_tree_<span class="hljs-built_in">hash</span>=<span class="hljs-string">&quot;<span class="hljs-variable">$(git holo project --fetch --working emergence-site)</span>&quot;</span> <span class="hljs-comment"># use working tree</span>
-    <span class="hljs-comment"># build_tree_hash=&quot;$(git holo project --fetch --ref=&quot;v${pkg_version}&quot; emergence-site)&quot; # use version tag</span>
-    <span class="hljs-built_in">popd</span> &gt; /dev/null
+  <span class="hljs-built_in">pushd</span> <span class="hljs-string">&quot;<span class="hljs-variable">${PLAN_CONTEXT}</span>/../&quot;</span> &gt; /dev/null
+  build_tree_<span class="hljs-built_in">hash</span>=<span class="hljs-string">&quot;<span class="hljs-variable">$(git holo project --fetch --working emergence-site)</span>&quot;</span> <span class="hljs-comment"># use working tree</span>
+  <span class="hljs-comment"># build_tree_hash=&quot;$(git holo project --fetch --ref=&quot;v${pkg_version}&quot; emergence-site)&quot; # use version tag</span>
+  <span class="hljs-built_in">popd</span> &gt; /dev/null
 }
 
 <span class="hljs-function"><span class="hljs-title">do_install</span></span>() {
-    mkdir <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/site&quot;</span>
-    git archive --format=tar <span class="hljs-string">&quot;<span class="hljs-variable">${build_tree_hash}</span>&quot;</span> | (<span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/site&quot;</span> &amp;&amp; tar xf -)
+  mkdir <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/site&quot;</span>
+  git archive --format=tar <span class="hljs-string">&quot;<span class="hljs-variable">${build_tree_hash}</span>&quot;</span> | (<span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/site&quot;</span> &amp;&amp; tar xf -)
 }
 
 <span class="hljs-function"><span class="hljs-title">do_build_config</span></span>() {
-    <span class="hljs-keyword">do</span>_default_build_config
+  <span class="hljs-keyword">do</span>_default_build_config
 
-    build_line <span class="hljs-string">&quot;Merging php-runtime config&quot;</span>
-    cp -nrv <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for emergence/php-runtime)</span>&quot;</span>/{config_install,config,hooks} <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/&quot;</span>
-    toml-merge \
-        <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for emergence/php-runtime)</span>/default.toml&quot;</span> \
-        <span class="hljs-string">&quot;<span class="hljs-variable">${PLAN_CONTEXT}</span>/default.toml&quot;</span> \
-        &gt; <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/default.toml&quot;</span>
-    }
+  build_line <span class="hljs-string">&quot;Merging php-runtime config&quot;</span>
+  cp -nrv <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for emergence/php-runtime)</span>&quot;</span>/{config_install,config,hooks} <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/&quot;</span>
+  toml-merge \
+    <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for emergence/php-runtime)</span>/default.toml&quot;</span> \
+    <span class="hljs-string">&quot;<span class="hljs-variable">${PLAN_CONTEXT}</span>/default.toml&quot;</span> \
+    &gt; <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/default.toml&quot;</span>
+}
 
-    <span class="hljs-function"><span class="hljs-title">do_strip</span></span>() {
-    <span class="hljs-built_in">return</span> 0
+<span class="hljs-function"><span class="hljs-title">do_strip</span></span>() {
+  <span class="hljs-built_in">return</span> 0
 }
 </code></pre>
 <h2 id="initialize-default-configuration-for-the-php-application">Initialize default configuration for the PHP application:</h2>
@@ -392,13 +392,13 @@ pkg_name=<span class="hljs-string">&quot;<span class="hljs-variable">${composite
 pkg_origin=myorigin
 pkg_maintainer=<span class="hljs-string">&quot;First Last &lt;human@example.org&gt;&quot;</span>
 pkg_build_deps=(
-    jarvus/toml-merge
+  jarvus/toml-merge
 )
 pkg_deps=(
-    <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_origin}</span>/<span class="hljs-variable">${composite_base_pkg_name}</span>&quot;</span>
-    jarvus/habitat-compose
-    jarvus/mysql-remote
-    emergence/nginx
+  <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_origin}</span>/<span class="hljs-variable">${composite_base_pkg_name}</span>&quot;</span>
+  jarvus/habitat-compose
+  jarvus/mysql-remote
+  emergence/nginx
 )
 
 pkg_svc_user=<span class="hljs-string">&quot;root&quot;</span>
@@ -406,36 +406,36 @@ pkg_svc_run=<span class="hljs-string">&quot;habitat-compose <span class="hljs-va
 
 
 <span class="hljs-function"><span class="hljs-title">pkg_version</span></span>() {
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for ${pkg_origin}/${composite_base_pkg_name})</span>&quot;</span> | cut <span class="hljs-_">-d</span> / <span class="hljs-_">-f</span> 6
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for ${pkg_origin}/${composite_base_pkg_name})</span>&quot;</span> | cut <span class="hljs-_">-d</span> / <span class="hljs-_">-f</span> 6
 }
 
 <span class="hljs-comment"># implement build workflow</span>
 <span class="hljs-function"><span class="hljs-title">do_before</span></span>() {
-    <span class="hljs-keyword">do</span>_default_before
-    update_pkg_version
+  <span class="hljs-keyword">do</span>_default_before
+  update_pkg_version
 }
 
 <span class="hljs-function"><span class="hljs-title">do_build</span></span>() {
-    <span class="hljs-built_in">return</span> 0
+  <span class="hljs-built_in">return</span> 0
 }
 
 <span class="hljs-function"><span class="hljs-title">do_install</span></span>() {
-    <span class="hljs-built_in">return</span> 0
+  <span class="hljs-built_in">return</span> 0
 }
 
 <span class="hljs-function"><span class="hljs-title">do_build_config</span></span>() {
-    <span class="hljs-keyword">do</span>_default_build_config
+  <span class="hljs-keyword">do</span>_default_build_config
 
-    build_line <span class="hljs-string">&quot;Merging habitat-compose config&quot;</span>
-    cp -nrv <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for jarvus/habitat-compose)</span>/config&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/&quot;</span>
-    toml-merge \
-        <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for jarvus/habitat-compose)</span>/default.toml&quot;</span> \
-        <span class="hljs-string">&quot;<span class="hljs-variable">${PLAN_CONTEXT}</span>/default.toml&quot;</span> \
-        &gt; <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/default.toml&quot;</span>
-    }
+  build_line <span class="hljs-string">&quot;Merging habitat-compose config&quot;</span>
+  cp -nrv <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for jarvus/habitat-compose)</span>/config&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/&quot;</span>
+  toml-merge \
+    <span class="hljs-string">&quot;<span class="hljs-variable">$(pkg_path_for jarvus/habitat-compose)</span>/default.toml&quot;</span> \
+    <span class="hljs-string">&quot;<span class="hljs-variable">${PLAN_CONTEXT}</span>/default.toml&quot;</span> \
+    &gt; <span class="hljs-string">&quot;<span class="hljs-variable">${pkg_prefix}</span>/default.toml&quot;</span>
+}
 
-    <span class="hljs-function"><span class="hljs-title">do_strip</span></span>() {
-    <span class="hljs-built_in">return</span> 0
+<span class="hljs-function"><span class="hljs-title">do_strip</span></span>() {
+  <span class="hljs-built_in">return</span> 0
 }
 </code></pre>
 <p>Create <code>habitat/composite/default.toml</code></p>
@@ -496,7 +496,7 @@ pkg_svc_run=<span class="hljs-string">&quot;habitat-compose <span class="hljs-va
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Deploy a Site with Chef Habitat","level":"1.3.1","depth":2,"next":{"title":"Deploy a Site with Docker","level":"1.3.2","depth":2,"path":"deployment/docker.md","ref":"deployment/docker.md","articles":[]},"previous":{"title":"Deployment","level":"1.3","depth":1,"ref":"","articles":[{"title":"Deploy a Site with Chef Habitat","level":"1.3.1","depth":2,"path":"deployment/habitat.md","ref":"deployment/habitat.md","articles":[]},{"title":"Deploy a Site with Docker","level":"1.3.2","depth":2,"path":"deployment/docker.md","ref":"deployment/docker.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"deployment/habitat.md","mtime":"2019-12-05T14:22:29.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T14:22:31.401Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Deploy a Site with Chef Habitat","level":"1.3.1","depth":2,"next":{"title":"Deploy a Site with Docker","level":"1.3.2","depth":2,"path":"deployment/docker.md","ref":"deployment/docker.md","articles":[]},"previous":{"title":"Deployment","level":"1.3","depth":1,"ref":"","articles":[{"title":"Deploy a Site with Chef Habitat","level":"1.3.1","depth":2,"path":"deployment/habitat.md","ref":"deployment/habitat.md","articles":[]},{"title":"Deploy a Site with Docker","level":"1.3.2","depth":2,"path":"deployment/docker.md","ref":"deployment/docker.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"deployment/habitat.md","mtime":"2019-12-05T20:55:32.430Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T20:55:34.696Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
