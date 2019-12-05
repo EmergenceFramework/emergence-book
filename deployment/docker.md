@@ -22,13 +22,15 @@ env $(cat results/last_build.env | xargs) bash -c 'hab pkg export docker results
 This Dockerfile can be used as-is for any emergence project repository with `habitat/plan.sh` and `habitat/composite/plan.sh` in place per the [Deploy a Site with Chef Habitat](./habitat.md) guide. Replace every occurance of the placeholder `myorigin` with any origin name you'd like to prefix your built packages with. In this scenario it need not be externally registered with any bldr server. There are also several occurances of the placeholder `myapp` that you should replace as well.
 
 ```Dockerfile
+# This Dockerfile is hyper-optimized to minimize layer changes
+
 FROM jarvus/habitat-compose:latest as habitat
 ARG HAB_LICENSE=no-accept
 ENV HAB_LICENSE=$HAB_LICENSE
 ENV STUDIO_TYPE=Dockerfile
 ENV HAB_ORIGIN=myorigin
 RUN hab origin key generate
-# pre-layer all external runtime plan deps (pulling from pre-release channel)
+# pre-layer all external runtime plan deps
 COPY habitat/plan.sh /habitat/plan.sh
 RUN hab pkg install \
     $({ cat '/habitat/plan.sh' && echo && echo 'echo "${pkg_deps[@]/$pkg_origin\/*/}"'; } | hab pkg exec core/bash bash) \
