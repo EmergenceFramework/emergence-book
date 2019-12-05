@@ -148,7 +148,7 @@ Create `habitat/composite/default.toml`
 [services.nginx]
     pkg_ident = "emergence/nginx"
     [services.nginx.binds]
-        runtime = "app"
+        backend = "app"
 ```
 
 ## Open a Habitat Studio:
