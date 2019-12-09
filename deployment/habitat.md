@@ -35,7 +35,7 @@ pkg_origin=myorigin
 pkg_maintainer="First Last <human@example.org>"
 pkg_scaffolding=emergence/scaffolding-composite
 
-# uncomment to use remote instead of built-in MySQL:
+# uncomment to use remote mysql instead of local core/mysql service:
 # composite_mysql_pkg=jarvus/mysql-remote
 
 pkg_version() {
@@ -48,6 +48,12 @@ Create `habitat/composite/default.toml`
 ```toml
 [services.app.config]
 default_timezone = "America/New_York"
+
+# declare a basic username+password for core/mysql
+[services.mysql.config]
+app_username = "admin"
+app_password = "admin"
+bind = "0.0.0.0"
 ```
 
 ## Open a Habitat Studio:
