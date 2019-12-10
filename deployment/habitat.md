@@ -59,5 +59,5 @@ bind = "0.0.0.0"
 ## Open a Habitat Studio:
 
 ```bash
-HAB_DOCKER_OPTS="-p 7080:7080" hab studio enter -D
+HAB_DOCKER_OPTS="-p 7080:80" hab studio enter -D
 ```
