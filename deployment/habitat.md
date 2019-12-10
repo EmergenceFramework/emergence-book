@@ -29,7 +29,7 @@ database = "myapp"
 Create `habitat/composite/plan.sh`
 
 ```bash
-composite_base_pkg_name=myapp
+composite_app_pkg_name=myapp
 pkg_name="${composite_app_pkg_name}-composite"
 pkg_origin=myorigin
 pkg_maintainer="First Last <human@example.org>"
