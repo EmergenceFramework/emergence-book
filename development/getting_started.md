@@ -81,9 +81,30 @@ The `--recursive` option is used so that any submodule repositories are also clo
 
 ## Start Runtime and Build Site
 
+1. Ensure that the Supervisor is finished starting up in the background
+
+    As documented in your terminal right before your studio prompt, the Habitat studio has launched a Supervisor for you and set up a shortcut command to follow its log. This log contains the output for the Supervisor and any background services we load into it. Your Supervisor should be done downloading and starting by the time you type anything, but you can check by running `sup-log` and ensure you see these last lines look like this:
+
+    ```console
+    # sup-log
+    ...
+    hab-sup(MR): Starting gossip-listener on 0.0.0.0:9638
+    hab-sup(MR): Starting ctl-gateway on 127.0.0.1:9632
+    hab-sup(MR): Starting http-gateway on 0.0.0.0:9631
+    ```
+
+    If you still see packages downloading and installing instead, wait until that finishes. Press `Ctrl+C` to stop following the log and return to your prompt.
+
+    You can further confirm that the Supervisor is ready and see the status of any loaded services at any time by running `hab svc status`:
+
+    ```console
+    # hab svc status
+    No services loaded.
+    ```
+
 1. Start environment services
 
-    Use the studio command `start-all` to launch the http server (nginx), the application runtime (php-fpm), and a local mysql server:
+    Use the Emergence Studio command `start-all` to launch and bind all the required services for loading an Emergence site: the http server (nginx), the application runtime (php-fpm+app bootloader), and a local mysql server:
 
     ```bash
     start-all
