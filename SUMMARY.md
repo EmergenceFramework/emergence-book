@@ -7,6 +7,7 @@
   * [Deploy a Site with Chef Habitat](deployment/habitat.md)
   * [Deploy a Site with Docker](deployment/docker.md)
 * Guides
+  * [Migrate a Site to a Holobranch](guides/migrate-site-to-holobranch.md)
   * [Creating a Dynamic Page](guides/creating-a-dynamic-page.md)
   * [Make a Model Searchable by Tags](guides/make-a-model-searchable-by-tags.md)
   * [Migrations](guides/migrations.md)
