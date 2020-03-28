@@ -42,7 +42,7 @@ COPY habitat/composite/plan.sh /habitat/composite/plan.sh
 RUN hab pkg install \
     emergence/nginx \
     jarvus/habitat-compose \
-    $({ cat '/habitat/composite/plan.sh' && echo && echo 'echo "${pkg_deps[@]/$pkg_origin\/*/} ${composite_mysql_pkg:-core/mysql}'; } | hab pkg exec core/bash bash) \
+    $({ cat '/habitat/composite/plan.sh' && echo && echo 'echo "${pkg_deps[@]/$pkg_origin\/*/} ${composite_mysql_pkg:-core/mysql}"'; } | hab pkg exec core/bash bash) \
     && hab pkg exec core/coreutils rm -rf /hab/{artifacts,src}/
 
 
