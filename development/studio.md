@@ -119,6 +119,7 @@ The example `HAB_DOCKER_OPTS` above includes exposing nginx's HTTP and HTTPS por
 - `watch-site` — Like `update-site`, but runs until terminated, watching for file changes and re-updating the site automatically
 - `shell-runtime` — Opens an interactive [PsySH](https://psysh.org/) shell under the same environment used by the currently-loaded runtime instance
 - `switch-site /path/to/repository/` — Switches what site repository will be used next time you run `update-site` (the default is whichever `.studiorc` was loaded from)
+- `console-run [command] <args...>` — Executes a script from the `console-commands/` site tree within the current runtime
 - `enable-xdebug 192.168.1.1` — Enables using a remote Xdebug debugger at an IP/hostname reachable from inside the container
 - `enable-runtime-update` — When using a site-specific runtime service, enables using `update-site` as you can with the generic `emergence/php-runtime` service (instead of using the site build bundled with the service).
 
