@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Deploy a Site with Chef Habitat · GitBook</title>
+        <title>Development: Build a Site-specific Service · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="docker.html" />
     
+    <link rel="prev" href="console-command.html" />
     
 
     </head>
@@ -114,9 +114,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../development/getting_started.html">
+        <li class="chapter " data-level="1.2.1" data-path="getting_started.html">
             
-                <a href="../development/getting_started.html">
+                <a href="getting_started.html">
             
                     
                     Getting Started
@@ -127,9 +127,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../development/studio.html">
+        <li class="chapter " data-level="1.2.2" data-path="studio.html">
             
-                <a href="../development/studio.html">
+                <a href="studio.html">
             
                     
                     Using Studio
@@ -140,9 +140,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../development/console-command.html">
+        <li class="chapter " data-level="1.2.3" data-path="console-command.html">
             
-                <a href="../development/console-command.html">
+                <a href="console-command.html">
             
                     
                     Build a Console Command
@@ -153,9 +153,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="../development/site-specific-service.html">
+        <li class="chapter active" data-level="1.2.4" data-path="site-specific-service.html">
             
-                <a href="../development/site-specific-service.html">
+                <a href="site-specific-service.html">
             
                     
                     Development: Build a Site-specific Service
@@ -185,9 +185,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="habitat.html">
+        <li class="chapter " data-level="1.3.1" data-path="../deployment/habitat.html">
             
-                <a href="habitat.html">
+                <a href="../deployment/habitat.html">
             
                     
                     Deploy a Site with Chef Habitat
@@ -198,9 +198,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="docker.html">
+        <li class="chapter " data-level="1.3.2" data-path="../deployment/docker.html">
             
-                <a href="docker.html">
+                <a href="../deployment/docker.html">
             
                     
                     Deploy a Site with Docker
@@ -356,7 +356,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Deploy a Site with Chef Habitat</a>
+        <a href=".." >Development: Build a Site-specific Service</a>
     </h1>
 </div>
 
@@ -371,51 +371,51 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="deploy-a-site-with-chef-habitat">Deploy a Site with Chef Habitat</h1>
-<h2 id="initialize-a-chef-habitat-plan-for-the-php-application">Initialize a Chef Habitat plan for the PHP application:</h2>
-<p>Create <code>habitat/plan.sh</code></p>
-<pre><code class="lang-bash">pkg_name=myapp
-pkg_origin=myorigin
-pkg_maintainer=<span class="hljs-string">&quot;First Last &lt;human@example.org&gt;&quot;</span>
-pkg_scaffolding=emergence/scaffolding-site
-
-<span class="hljs-function"><span class="hljs-title">pkg_version</span></span>() {
-  scaffolding_detect_pkg_version
-}
+                                <h1 id="development-build-a-site-specific-service">Development: Build a Site-specific Service</h1>
+<p>This guide shows you how to develop a <a href="https://www.habitat.sh/docs/developing-packages/" target="_blank">Chef Habitat package</a> containing a complete build of one site that is ready to <a href="https://www.habitat.sh/docs/using-habitat/" target="_blank">run as a service</a> under the Chef Habitat Supervisor.</p>
+<h2 id="in-this-article">In this article</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#initialize-habitat-tree">Initialize <code>habitat/</code> tree</a></li>
+<li><a href="#build-runtime-package">Build runtime package</a></li>
+<li><a href="#enter-studio">Enter Studio</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>After you complete this, you will be able to build a version of the site&apos;s source tree into a <code>.hart</code> Chef Habitat package build artifact file that is ready to be installed into any environment with the Chef Habitat Supervisor running, uploaded to a <a href="https://www.habitat.sh/docs/using-builder/" target="_blank">Chef Habitat Builder</a> server, or <a href="https://www.habitat.sh/docs/developing-packages/#pkg-exports" target="_blank">exported into a Docker container image or other formats</a>. The <code>.hart</code> file will contain a complete manifest of exact versions for all dependencies</p>
+<p>This approach also enables you to bundle any additional environmental dependencies, build steps, commands, configuration, or lifecycle hooks into your site&apos;s runtime environment via Chef Habitat&apos;s facilities.</p>
+<h2 id="initialize-habitat-tree">Initialize <code>habitat/</code> Tree</h2>
+<ul>
+<li>Before you begin, complete the steps covered in <a href="../deployment/habitat.html">Deployment: Deploy a Site with Chef Habitat</a> to initialize the <code>habitat/</code> configuration tree defining the Chef Habitat package(s) for your site.</li>
+</ul>
+<h2 id="build-runtime-package">Build Runtime Package</h2>
+<ul>
+<li><p>Use the standard <code>build</code> command provided by Chef Habitat Studio as you would to build any other Chef Habitat package:</p>
+<pre><code class="lang-bash">  <span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-variable">${EMERGENCE_REPO}</span>&quot;</span>
+  build
 </code></pre>
-<h2 id="initialize-default-configuration-for-the-php-application">Initialize default configuration for the PHP application:</h2>
-<p>Create <code>habitat/default.toml</code></p>
-<pre><code class="lang-toml"><span class="hljs-section">[sites.default]</span>
-<span class="hljs-attr">database</span> = <span class="hljs-string">&quot;myapp&quot;</span>
+</li>
+</ul>
+<h2 id="enter-studio">Enter Studio</h2>
+<p>A Chef Habitat Studio will provide an isolated, disposable, and interactive command-line environment for working on your package.</p>
+<p>When building your own Chef Habitat packages, be sure to set <code>HAB_ORIGIN</code> to the company/team/personal name you want to prefix your builds with. If you plan to publish your packages to a Chef Habitat Builder server, it should be an origin name you&apos;ve registered on that server. Otherwise the name is entirely for your own local organization and can be set to any string you could use for a directory name.</p>
+<ul>
+<li><p>Follow all steps in the <a href="studio.html">Using Studio</a> guide, but at the <em>Load a Runtime Service</em> step, pass the package identifier for your site-specific runtime:</p>
+<pre><code class="lang-bash">  start-runtime myorigin/mypackage
 </code></pre>
-<h2 id="initialize-a-chef-habitat-plan-for-running-php-application--nginx--database">Initialize a Chef Habitat plan for running PHP application + nginx + database:</h2>
-<p>Create <code>habitat/composite/plan.sh</code></p>
-<pre><code class="lang-bash">composite_app_pkg_name=myapp
-pkg_name=<span class="hljs-string">&quot;<span class="hljs-variable">${composite_app_pkg_name}</span>-composite&quot;</span>
-pkg_origin=myorigin
-pkg_maintainer=<span class="hljs-string">&quot;First Last &lt;human@example.org&gt;&quot;</span>
-pkg_scaffolding=emergence/scaffolding-composite
-
-<span class="hljs-comment"># uncomment to use remote mysql instead of local core/mysql service:</span>
-<span class="hljs-comment"># composite_mysql_pkg=jarvus/mysql-remote</span>
-
-<span class="hljs-function"><span class="hljs-title">pkg_version</span></span>() {
-  scaffolding_detect_pkg_version
-}
+</li>
+</ul>
+<h2 id="update-site-without-rebuilding-runtime">Update Site Without Rebuilding Runtime</h2>
+<p>The most accurate way to test your site-specific service artifact is to use the <code>build</code> command to entirely rebuild the package each time. Once an instance of it is running though, you may update it directly from your site sources just like you would with the generic <code>emergence/php-runtime</code> service.</p>
+<ul>
+<li><p>Enable live-updating of site-specific service:</p>
+<pre><code class="lang-bash">  <span class="hljs-built_in">enable</span>-runtime-update
 </code></pre>
-<p>Create <code>habitat/composite/default.toml</code></p>
-<pre><code class="lang-toml"><span class="hljs-section">[services.app.config]</span>
-<span class="hljs-attr">default_timezone</span> = <span class="hljs-string">&quot;America/New_York&quot;</span>
-
-<span class="hljs-comment"># declare a basic username+password for core/mysql</span>
-<span class="hljs-section">[services.mysql.config]</span>
-<span class="hljs-attr">app_username</span> = <span class="hljs-string">&quot;admin&quot;</span>
-<span class="hljs-attr">app_password</span> = <span class="hljs-string">&quot;admin&quot;</span>
-<span class="hljs-attr">bind</span> = <span class="hljs-string">&quot;0.0.0.0&quot;</span>
+</li>
+<li><p>Use <code>update-site</code> (or <code>watch-site</code>) like normal:</p>
+<pre><code class="lang-bash">  update-site
 </code></pre>
-<h2 id="open-a-habitat-studio">Open a Habitat Studio:</h2>
-<pre><code class="lang-bash">HAB_DOCKER_OPTS=<span class="hljs-string">&quot;-p 7080:80&quot;</span> hab studio enter -D
-</code></pre>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -443,10 +443,10 @@ pkg_scaffolding=emergence/scaffolding-composite
 
             
                 
-                
-                <a href="docker.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Deploy a Site with Docker">
-                    <i class="fa fa-angle-right"></i>
+                <a href="console-command.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Build a Console Command">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -455,7 +455,7 @@ pkg_scaffolding=emergence/scaffolding-composite
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Deploy a Site with Chef Habitat","level":"1.3.1","depth":2,"next":{"title":"Deploy a Site with Docker","level":"1.3.2","depth":2,"path":"deployment/docker.md","ref":"deployment/docker.md","articles":[]},"previous":{"title":"Deployment","level":"1.3","depth":1,"ref":"","articles":[{"title":"Deploy a Site with Chef Habitat","level":"1.3.1","depth":2,"path":"deployment/habitat.md","ref":"deployment/habitat.md","articles":[]},{"title":"Deploy a Site with Docker","level":"1.3.2","depth":2,"path":"deployment/docker.md","ref":"deployment/docker.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"deployment/habitat.md","mtime":"2020-04-11T18:53:47.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-11T18:53:49.825Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Development: Build a Site-specific Service","level":"1.2.4","depth":2,"next":{"title":"Deployment","level":"1.3","depth":1,"ref":"","articles":[{"title":"Deploy a Site with Chef Habitat","level":"1.3.1","depth":2,"path":"deployment/habitat.md","ref":"deployment/habitat.md","articles":[]},{"title":"Deploy a Site with Docker","level":"1.3.2","depth":2,"path":"deployment/docker.md","ref":"deployment/docker.md","articles":[]}]},"previous":{"title":"Build a Console Command","level":"1.2.3","depth":2,"path":"development/console-command.md","ref":"development/console-command.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"development/site-specific-service.md","mtime":"2020-04-11T18:53:47.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-11T18:53:49.825Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
