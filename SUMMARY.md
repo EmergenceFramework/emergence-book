@@ -4,6 +4,7 @@
 * Development
   * [Getting Started](development/getting_started.md)
   * [Using Studio](development/studio.md)
+  * [Build a Console Command](development/console-command.md)
   * [Development: Build a Site-specific Service](development/site-specific-service.md)
 * Deployment
   * [Deploy a Site with Chef Habitat](deployment/habitat.md)
