@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="http://emergenceplatform.github.io/book/development/studio/">
+        <link rel="canonical" href="http://emergenceplatform.github.io/book/deployment/restic/">
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
@@ -15,7 +15,7 @@
     
     
       
-        <title>Development: Using Studio - Emergence</title>
+        <title>Restic Backups - Emergence</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#development-using-studio" class="md-skip">
+        <a href="#restic-backups" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Development: Using Studio
+              Restic Backups
             
           </span>
         </div>
@@ -173,7 +173,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../console-command/" class="md-tabs__link md-tabs__link--active">
+        <a href="../../development/console-command/" class="md-tabs__link">
           Development
         </a>
       
@@ -186,7 +186,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../deployment/docker/" class="md-tabs__link">
+        <a href="../docker/" class="md-tabs__link md-tabs__link--active">
           Deployment
         </a>
       
@@ -263,12 +263,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Development
@@ -288,7 +286,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../console-command/" class="md-nav__link">
+    <a href="../../development/console-command/" class="md-nav__link">
       Development: Build a Console Command
     </a>
   </li>
@@ -300,7 +298,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../getting_started/" class="md-nav__link">
+    <a href="../../development/getting_started/" class="md-nav__link">
       Getting Started with Development
     </a>
   </li>
@@ -312,7 +310,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../site-specific-service/" class="md-nav__link">
+    <a href="../../development/site-specific-service/" class="md-nav__link">
       Development: Build a Site-specific Service
     </a>
   </li>
@@ -322,145 +320,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Development: Using Studio
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../development/studio/" class="md-nav__link">
       Development: Using Studio
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#in-this-article" class="md-nav__link">
-    In this article
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-studiorc-to-repository" class="md-nav__link">
-    Add .studiorc to Repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enter-studio" class="md-nav__link">
-    Enter Studio
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#load-a-database-service" class="md-nav__link">
-    Load a Database Service
-  </a>
-  
-    <nav class="md-nav" aria-label="Load a Database Service">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-coremysql-to-run-a-local-database" class="md-nav__link">
-    Use core/mysql to run a local database
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-jarvusmysql-remote-to-connect-a-remote-database" class="md-nav__link">
-    Use jarvus/mysql-remote to connect a remote database
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#load-a-runtime-service" class="md-nav__link">
-    Load a Runtime Service
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#load-an-http-service" class="md-nav__link">
-    Load an HTTP Service
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#studio-commands-reference" class="md-nav__link">
-    Studio Commands Reference
-  </a>
-  
-    <nav class="md-nav" aria-label="Studio Commands Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#runtime" class="md-nav__link">
-    Runtime
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    Database
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -473,10 +337,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Deployment
@@ -496,7 +362,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../deployment/docker/" class="md-nav__link">
+    <a href="../docker/" class="md-nav__link">
       Deploy a Site with Docker
     </a>
   </li>
@@ -508,7 +374,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../deployment/habitat/" class="md-nav__link">
+    <a href="../habitat/" class="md-nav__link">
       Deploy a Site with Chef Habitat
     </a>
   </li>
@@ -518,11 +384,84 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../deployment/restic/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Restic Backups
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Restic Backups
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-restic-cli" class="md-nav__link">
+    Install Restic CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provision-bucket" class="md-nav__link">
+    Provision bucket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-restic-environment" class="md-nav__link">
+    Build restic environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-repository" class="md-nav__link">
+    Initialize repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-backup-script" class="md-nav__link">
+    Create backup script
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-manually" class="md-nav__link">
+    Run manually
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -677,105 +616,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#in-this-article" class="md-nav__link">
-    In this article
+  <a href="#install-restic-cli" class="md-nav__link">
+    Install Restic CLI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
+  <a href="#provision-bucket" class="md-nav__link">
+    Provision bucket
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#build-restic-environment" class="md-nav__link">
+    Build restic environment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-studiorc-to-repository" class="md-nav__link">
-    Add .studiorc to Repository
+  <a href="#initialize-repository" class="md-nav__link">
+    Initialize repository
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enter-studio" class="md-nav__link">
-    Enter Studio
+  <a href="#create-backup-script" class="md-nav__link">
+    Create backup script
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#load-a-database-service" class="md-nav__link">
-    Load a Database Service
+  <a href="#run-manually" class="md-nav__link">
+    Run manually
   </a>
-  
-    <nav class="md-nav" aria-label="Load a Database Service">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-coremysql-to-run-a-local-database" class="md-nav__link">
-    Use core/mysql to run a local database
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-jarvusmysql-remote-to-connect-a-remote-database" class="md-nav__link">
-    Use jarvus/mysql-remote to connect a remote database
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#load-a-runtime-service" class="md-nav__link">
-    Load a Runtime Service
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#load-an-http-service" class="md-nav__link">
-    Load an HTTP Service
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#studio-commands-reference" class="md-nav__link">
-    Studio Commands Reference
-  </a>
-  
-    <nav class="md-nav" aria-label="Studio Commands Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#runtime" class="md-nav__link">
-    Runtime
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    Database
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -791,106 +669,163 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/EmergencePlatform/book/edit/master/docs/development/studio.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/EmergencePlatform/book/edit/master/docs/deployment/restic.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="development-using-studio">Development: Using Studio<a class="headerlink" href="#development-using-studio" title="Permanent link"> ¶</a></h1>
-<p>This guide shows you how to set up a local Studio environment for interactively developing your site.</p>
-<h2 id="in-this-article">In this article<a class="headerlink" href="#in-this-article" title="Permanent link"> ¶</a></h2>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#add-studiorc-to-repository">Add <code>.studiorc</code> to Repository</a></li>
-<li><a href="#enter-studio">Enter Studio</a></li>
-<li><a href="#load-a-database-service">Load a Database Service</a></li>
-<li><a href="#load-a-runtime-service">Load a Runtime Service</a></li>
-<li><a href="#load-an-http-service">Load an HTTP Service</a></li>
-<li><a href="#studio-commands-reference">Studio Commands Reference</a></li>
-</ul>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"> ¶</a></h2>
-<p><a href="https://github.com/EmergencePlatform/studio/">Emergence Studio</a> uses <a href="https://www.habitat.sh/docs/developing-packages/#plan-builds">Chef Habitat Studio</a> to provide an isolated, disposable, and interactive command-line environment for working on your site.</p>
-<p>In this and other guides, we will focus on running Linux-like Studio environments contained by Docker, as that provides the most consistent developer experience across platforms. On Linux machines, Chef Habitat <a href="https://www.habitat.sh/docs/developing-packages/#managing-the-studio-type-docker-linux-windows">also can provide a chroot-contained Studio type</a> that is faster, smaller, persistent by default, and exposes all network ports. Chroot studios offer lower overhead in CI and controlled environments, and will work just as well with Emergence Studio, but require more awareness of what else is in the environment to avoid conflicts.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"> ¶</a></h2>
-<ul>
-<li>Complete the <a href="../getting_started/#prerequisites">prerequisites covered in Development: Getting Started</a></li>
-</ul>
-<h2 id="add-studiorc-to-repository">Add <code>.studiorc</code> to Repository<a class="headerlink" href="#add-studiorc-to-repository" title="Permanent link"> ¶</a></h2>
-<p>While entering a Chef Habitat Studio, any <code>.studiorc</code> script present in the root of the directory where the <code>hab studio enter</code> command is run will be sourced and executed automatically during the Studio&rsquo;s initialization, before the interactive command line is presented.</p>
-<p>Use this <code>.studiorc</code> template as a starting point in the root of any emergence site project:</p>
+                <h1 id="restic-backups">Restic Backups<a class="headerlink" href="#restic-backups" title="Permanent link"> ¶</a></h1>
+<h2 id="install-restic-cli">Install Restic CLI<a class="headerlink" href="#install-restic-cli" title="Permanent link"> ¶</a></h2>
+<div class="highlight"><pre><span></span><code>hab pkg install --binlink core/restic
+</code></pre></div>
+<h2 id="provision-bucket">Provision bucket<a class="headerlink" href="#provision-bucket" title="Permanent link"> ¶</a></h2>
+<p>Create a bucket and obtain access credentials at a low-cost cloud object storage host:</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Linode</label><div class="tabbed-content">
+<ol>
+<li><a href="https://cloud.linode.com/object-storage/buckets">Add an Object Storage bucket</a></li>
+<li><a href="https://cloud.linode.com/object-storage/access-keys">Create an Access key</a></li>
+</ol>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Backblaze</label><div class="tabbed-content">
+<ol>
+<li><a href="https://secure.backblaze.com/b2_buckets.htm">Provision B2 bucket</a></li>
+<li><a href="https://secure.backblaze.com/app_keys.htm">Provision B2 app key</a></li>
+</ol>
+</div>
+</div>
+<h2 id="build-restic-environment">Build restic environment<a class="headerlink" href="#build-restic-environment" title="Permanent link"> ¶</a></h2>
+<p>Create a secure file to store needed environment variables for the <code>restic</code> client to read and write to the encrypted repository bucket:</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Linode</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-hab pkg install emergence/studio
-<span class="nb">source</span> <span class="s2">&quot;</span><span class="k">$(</span>hab pkg path emergence/studio<span class="k">)</span><span class="s2">/studio.sh&quot;</span>
-</code></pre></div>
-<p>This script installs and loads the Emergence Studio environment and commands. You may add any additional code here to extend the studio environment for your project.</p>
-<h2 id="enter-studio">Enter Studio<a class="headerlink" href="#enter-studio" title="Permanent link"> ¶</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># start from the root of your project repository</span>
-<span class="nb">cd</span> /path/to/my-repo/
 
-<span class="c1"># use your chosen/registered origin name</span>
-<span class="nb">export</span> <span class="nv">HAB_ORIGIN</span><span class="o">=</span><span class="s2">&quot;myorigin&quot;</span>
+<span class="nv">RESTIC_REPOSITORY</span><span class="o">=</span><span class="s2">&quot;s3:us-east-1.linodeobjects.com/myhost-restic&quot;</span>
+<span class="nv">RESTIC_PASSWORD</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 
-<span class="c1"># pass options to Docker to open ports, persist mysql data, name container</span>
-<span class="nb">export</span> <span class="nv">HAB_DOCKER_OPTS</span><span class="o">=</span><span class="s2">&quot;</span>
-<span class="s2">    -p 7080:80</span>
-<span class="s2">    -p 7043:443</span>
-<span class="s2">    -p 7036:3306</span>
-<span class="s2">    -p 7099:19999</span>
-<span class="s2">    -v mysite-mysql-data:/hab/svc/mysql/data</span>
-<span class="s2">    --name mysite-studio</span>
-<span class="s2">&quot;</span>
+<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># Access Key</span>
+<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># Secret Key</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Backblaze</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-<span class="c1"># launch and enter interactive Habitat studio, forcing Docker mode</span>
-hab studio enter -D
+<span class="nv">RESTIC_REPOSITORY</span><span class="o">=</span><span class="s2">&quot;b2:myhost-restic&quot;</span>
+<span class="nv">RESTIC_PASSWORD</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+
+<span class="nv">B2_ACCOUNT_ID</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># keyID</span>
+<span class="nv">B2_ACCOUNT_KEY</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># applicationKey</span>
 </code></pre></div>
-<h2 id="load-a-database-service">Load a Database Service<a class="headerlink" href="#load-a-database-service" title="Permanent link"> ¶</a></h2>
-<p>Start a database service before any other. Your runtime service instance can have its <code>database</code> slot bound to an instance of <code>core/mysql</code>, <code>jarvus/mysql-remote</code>, or any other Chef Habitat service with compatible config exposure leading to a MySQL server connection.</p>
-<p>Any approach must export <code>$DB_SERVICE</code> and <code>$DB_DATABASE</code> into your studio environment.</p>
-<h3 id="use-coremysql-to-run-a-local-database">Use <code>core/mysql</code> to run a local database<a class="headerlink" href="#use-coremysql-to-run-a-local-database" title="Permanent link"> ¶</a></h3>
-<div class="highlight"><pre><span></span><code>start-mysql
+</div>
+</div>
+<ol>
+<li>Create <code>/etc/restic.env</code> from above template</li>
+<li>Tailor <code>RESTIC_REPOSITORY</code> to created bucket</li>
+<li>Generate <code>RESTIC_PASSWORD</code> and save to credential vault</li>
+<li>Fill storage credentials</li>
+<li>Secure configuration:<div class="highlight"><pre><span></span><code>sudo chmod <span class="m">660</span> /etc/restic.env
 </code></pre></div>
-<p>That&rsquo;s it! A local MySQL instance will be set up using <a href="https://github.com/habitat-sh/core-plans/tree/master/mysql"><code>core/mysql</code></a> with persistent data stored under <code>/hab/svc/mysql/data</code>. The example <code>HAB_DOCKER_OPTS</code> above includes mounting this path to a named volume and exposing the MySQL port to your host machine on <code>7036</code>.</p>
-<p>Use <code>hab svc status</code> and <code>sup-log</code> to verify the database service is up and running without any errors. If you see any permission denied errors under <code>sup-log</code>, that likely indicates the volume mounted at <code>/hab/svc/mysql/data</code> did not initialize with permissions adequate for the MySQL service to write there, and can be fixed for the lifetime of that volume by running <code>chown hab:hab -R /hab/svc/mysql/data</code></p>
-<h3 id="use-jarvusmysql-remote-to-connect-a-remote-database">Use <code>jarvus/mysql-remote</code> to connect a remote database<a class="headerlink" href="#use-jarvusmysql-remote-to-connect-a-remote-database" title="Permanent link"> ¶</a></h3>
-<div class="highlight"><pre><span></span><code>start-mysql-remote <span class="s2">&quot;mydatabasename&quot;</span>
-</code></pre></div>
-<p>This studio command will launch an editor to populate <code>/hab/user/mysql-remote/config/user.toml</code> with connection details and then load a <a href="https://github.com/JarvusInnovations/habitat-plans/tree/master/mysql-remote"><code>jarvus/mysql-remote</code></a> service instance.</p>
-<h2 id="load-a-runtime-service">Load a Runtime Service<a class="headerlink" href="#load-a-runtime-service" title="Permanent link"> ¶</a></h2>
-<p>With a database service successfully loaded, you can load a runtime service. The runtime service provides the PHP worker pool and loads your site code into it.</p>
-<div class="highlight"><pre><span></span><code>start-runtime
-</code></pre></div>
-<p>This studio command will load an instance of the generic <a href="https://github.com/EmergencePlatform/php-runtime"><code>emergence/php-runtime</code></a> service that any site can be loaded into. The <code>$DB_SERVICE</code> environment variable exported when you ran one of the <code>start-mysql*</code> studio commands previously will be used to bind this runtime instance&rsquo;s <code>database</code> slot to your database instance.</p>
-<p>The guide <a href="development/site-specific-service.md">Development: Build a Site-specific Service</a> covers how to build and use your own runtime service package that can extend and bundle your site into its own deployable artifact.</p>
-<p>Any approach must export <code>$EMERGENCE_RUNTIME</code> into your studio environment.</p>
-<h2 id="load-an-http-service">Load an HTTP Service<a class="headerlink" href="#load-an-http-service" title="Permanent link"> ¶</a></h2>
-<p>Finally, with the database and runtime services successfully loaded, you can load an HTTP service to expose your application.</p>
-<div class="highlight"><pre><span></span><code>start-http
-</code></pre></div>
-<p>This studio command will load an instance of the generic <a href="https://github.com/EmergencePlatform/habitat-plans/tree/master/nginx"><code>emergence/nginx</code></a> service. The <code>$EMERGENCE_RUNTIME</code> environment variable exported when you ran the <code>start-runtime</code> studio command previously will be used to bind this nginx instance&rsquo;s <code>backend</code> slot to your runtime instance.</p>
-<p>The example <code>HAB_DOCKER_OPTS</code> above includes exposing nginx&rsquo;s HTTP and HTTPS ports to your host machine on <code>7080</code> and <code>7043</code> respectively.</p>
-<h2 id="studio-commands-reference">Studio Commands Reference<a class="headerlink" href="#studio-commands-reference" title="Permanent link"> ¶</a></h2>
-<h3 id="runtime">Runtime<a class="headerlink" href="#runtime" title="Permanent link"> ¶</a></h3>
-<ul>
-<li><code>update-site</code> — Projects your site tree with Hologit and loads it into the current runtime service instance<ul>
-<li>Affected by <code>$EMERGENCE_REPO</code>, <code>$EMERGENCE_HOLOBRANCH</code>, and <code>$EMERGENCE_FETCH</code> environment variables</li>
-</ul>
 </li>
-<li><code>watch-site</code> — Like <code>update-site</code>, but runs until terminated, watching for file changes and re-updating the site automatically</li>
-<li><code>shell-runtime</code> — Opens an interactive <a href="https://psysh.org/">PsySH</a> shell under the same environment used by the currently-loaded runtime instance</li>
-<li><code>switch-site /path/to/repository/</code> — Switches what site repository will be used next time you run <code>update-site</code> (the default is whichever <code>.studiorc</code> was loaded from)</li>
-<li><code>console-run [command] &lt;args...&gt;</code> — Executes a script from the <code>console-commands/</code> site tree within the current runtime</li>
-<li><code>enable-xdebug 192.168.1.1</code> — Enables using a remote Xdebug debugger at an IP/hostname reachable from inside the container</li>
-<li><code>enable-runtime-update</code> — When using a site-specific runtime service, enables using <code>update-site</code> as you can with the generic <code>emergence/php-runtime</code> service (instead of using the site build bundled with the service).</li>
-</ul>
-<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link"> ¶</a></h3>
-<ul>
-<li><code>load-sql [-|file...|URL|site] [database]</code> — Load one or more .sql files into the current database instance</li>
-<li><code>dump-sql [database] &gt; file.sql</code> — Dump the current database to SQL</li>
-<li><code>reset-mysql</code> — Drop and recreate empty the current database</li>
-<li><code>promote-user &lt;username&gt; [account_level]</code> — Promote a user in the database to a higher account level after registration</li>
-<li><code>shell-mysql</code> — Open an interactive MySQL client shell under the currently-loaded database instance</li>
-</ul>
+</ol>
+<h2 id="initialize-repository">Initialize repository<a class="headerlink" href="#initialize-repository" title="Permanent link"> ¶</a></h2>
+<p>Load the environment into your current shell to run Restic&rsquo;s one-time <code>init</code> command to set up the encrypted repository structure within the bucket:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">set</span> -a<span class="p">;</span> <span class="nb">source</span> /etc/restic.env<span class="p">;</span> <span class="nb">set</span> +a
+restic init
+</code></pre></div>
+<h2 id="create-backup-script">Create backup script<a class="headerlink" href="#create-backup-script" title="Permanent link"> ¶</a></h2>
+<ol>
+<li>
+<p>Create <code>/etc/cron.daily/emergence-restic-backup</code></p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -a
+<span class="nv">HOME</span><span class="o">=</span>/root
+<span class="nb">source</span> /etc/restic.env
+<span class="nb">set</span> +a
+
+<span class="c1"># snapshot host config to _</span>
+&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; snapshot host&quot;</span>
+
+/bin/restic backup /emergence <span class="se">\</span>
+    --host<span class="o">=</span>_ <span class="se">\</span>
+    --exclude<span class="o">=</span><span class="s1">&#39;/emergence/services/**&#39;</span> <span class="se">\</span>
+    --exclude<span class="o">=</span><span class="s1">&#39;/emergence/sites/**&#39;</span>
+
+<span class="c1"># snapshot each site to its own host</span>
+<span class="k">for</span> site_path in /emergence/sites/*<span class="p">;</span> <span class="k">do</span>
+<span class="nv">site_name</span><span class="o">=</span><span class="k">$(</span>basename <span class="si">${</span><span class="nv">site_path</span><span class="si">}</span><span class="k">)</span>
+
+&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; snapshot site: </span><span class="si">${</span><span class="nv">site_name</span><span class="si">}</span><span class="s2"> @ </span><span class="si">${</span><span class="nv">site_path</span><span class="si">}</span><span class="s2">&quot;</span>
+
+/bin/restic backup <span class="s2">&quot;</span><span class="si">${</span><span class="nv">site_path</span><span class="si">}</span><span class="s2">/&quot;</span> <span class="se">\</span>
+    --host<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">site_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --exclude<span class="o">=</span><span class="s1">&#39;*.log&#39;</span> <span class="se">\</span>
+    --exclude<span class="o">=</span><span class="s1">&#39;/emergence/sites/*/logs/**&#39;</span> <span class="se">\</span>
+    --exclude<span class="o">=</span><span class="s1">&#39;/emergence/sites/**/media/*x*/**&#39;</span>
+<span class="k">done</span>
+
+<span class="c1"># setup mysql</span>
+<span class="nv">mysql_args</span><span class="o">=</span><span class="s2">&quot;-u root -p</span><span class="k">$(</span>/bin/jq -r .services.plugins.sql.managerPassword /emergence/config.json<span class="k">)</span><span class="s2"> -S /emergence/services/run/mysqld/mysqld.sock&quot;</span>
+
+mysql_query<span class="o">()</span> <span class="o">{</span>
+    &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; mysql_query: </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    /usr/bin/mysql <span class="nv">$mysql_args</span> -srNe <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+mysql_dump<span class="o">()</span> <span class="o">{</span>
+    &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; mysql_dump: </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    /usr/bin/mysqldump <span class="si">${</span><span class="nv">mysql_args</span><span class="si">}</span> <span class="se">\</span>
+        --force <span class="se">\</span>
+        --single-transaction <span class="se">\</span>
+        --quick <span class="se">\</span>
+        --compact <span class="se">\</span>
+        --extended-insert <span class="se">\</span>
+        --order-by-primary <span class="se">\</span>
+        --ignore-table<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">.sessions&quot;</span> <span class="se">\</span>
+        <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+<span class="c1"># dump each database+table</span>
+<span class="nv">databases</span><span class="o">=</span><span class="k">$(</span>mysql_query <span class="s1">&#39;SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN (&quot;information_schema&quot;, &quot;mysql&quot;, &quot;performance_schema&quot;)&#39;</span><span class="k">)</span>
+
+<span class="k">for</span> db_name in <span class="nv">$databases</span><span class="p">;</span> <span class="k">do</span>
+
+<span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;/emergence/sites/</span><span class="si">${</span><span class="nv">db_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">cd</span> <span class="s2">&quot;/emergence/sites/</span><span class="si">${</span><span class="nv">db_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+    <span class="nb">cd</span> <span class="s2">&quot;/tmp&quot;</span>
+<span class="k">fi</span>
+
+mysql_dump <span class="s2">&quot;</span><span class="si">${</span><span class="nv">db_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">table_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+    <span class="p">|</span> /bin/restic backup <span class="se">\</span>
+        --host<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">db_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+        --stdin <span class="se">\</span>
+        --stdin-filename<span class="o">=</span><span class="s2">&quot;database.sql&quot;</span>
+
+<span class="c1"># restic de-dupe not as effective</span>
+<span class="c1">#    | /bin/gzip --rsyncable \</span>
+<span class="k">done</span>
+
+<span class="c1"># thin out snapshots</span>
+&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; restic forget&quot;</span>
+/bin/restic forget <span class="se">\</span>
+    --keep-last<span class="o">=</span><span class="m">1</span> <span class="se">\</span>
+    --keep-within<span class="o">=</span>3d <span class="se">\</span>
+    --keep-daily<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
+    --keep-weekly<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
+    --keep-monthly<span class="o">=</span><span class="m">1200</span>
+</code></pre></div>
+</li>
+<li>
+<p>Max executable:</p>
+<div class="highlight"><pre><span></span><code>chmod +x /etc/cron.daily/emergence-restic-backup
+</code></pre></div>
+</li>
+</ol>
+<h2 id="run-manually">Run manually<a class="headerlink" href="#run-manually" title="Permanent link"> ¶</a></h2>
+<p>To verify the configuration and create an initial snapshot:</p>
+<div class="highlight"><pre><span></span><code>/etc/cron.daily/emergence-restic-backup
+</code></pre></div>
                 
               
               
@@ -909,7 +844,7 @@ hab studio enter -D
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../site-specific-service/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../habitat/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -918,19 +853,19 @@ hab studio enter -D
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Development: Build a Site-specific Service
+                Deploy a Site with Chef Habitat
               </div>
             </div>
           </a>
         
         
-          <a href="../../deployment/docker/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../guides/creating-a-dynamic-page/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Deploy a Site with Docker
+                Creating a Dynamic Page
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
