@@ -41,3 +41,4 @@ markdown_extensions:
       permalink: " ¶"
   - smarty
   - fontawesome_markdown
+  - mdx_truly_sane_lists
