@@ -15,7 +15,7 @@
     
     
       
-        <title>Restic Backups - Emergence</title>
+        <title>Set up Backups with Restic - Emergence</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#restic-backups" class="md-skip">
+        <a href="#set-up-backups-with-restic" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Restic Backups
+              Set up Backups with Restic
             
           </span>
         </div>
@@ -395,12 +395,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Restic Backups
+        Set up Backups with Restic
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Restic Backups
+      Set up Backups with Restic
     </a>
     
       
@@ -417,8 +417,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-restic-cli" class="md-nav__link">
-    Install Restic CLI
+  <a href="#install-restic" class="md-nav__link">
+    Install Restic
   </a>
   
 </li>
@@ -616,8 +616,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-restic-cli" class="md-nav__link">
-    Install Restic CLI
+  <a href="#install-restic" class="md-nav__link">
+    Install Restic
   </a>
   
 </li>
@@ -674,9 +674,10 @@
                   </a>
                 
                 
-                <h1 id="restic-backups">Restic Backups<a class="headerlink" href="#restic-backups" title="Permanent link"> ¶</a></h1>
-<h2 id="install-restic-cli">Install Restic CLI<a class="headerlink" href="#install-restic-cli" title="Permanent link"> ¶</a></h2>
-<div class="highlight"><pre><span></span><code>hab pkg install --binlink core/restic
+                <h1 id="set-up-backups-with-restic">Set up Backups with Restic<a class="headerlink" href="#set-up-backups-with-restic" title="Permanent link"> ¶</a></h1>
+<h2 id="install-restic">Install Restic<a class="headerlink" href="#install-restic" title="Permanent link"> ¶</a></h2>
+<p>Install the <code>restic</code> and <code>jq</code> commands:</p>
+<div class="highlight"><pre><span></span><code>hab pkg install --binlink core/restic core/jq-static
 </code></pre></div>
 <h2 id="provision-bucket">Provision bucket<a class="headerlink" href="#provision-bucket" title="Permanent link"> ¶</a></h2>
 <p>Create a bucket and obtain access credentials at a low-cost cloud object storage host:</p>
@@ -731,6 +732,7 @@
 restic init
 </code></pre></div>
 <h2 id="create-backup-script">Create backup script<a class="headerlink" href="#create-backup-script" title="Permanent link"> ¶</a></h2>
+<p>TODO: bundle up with Habitat?</p>
 <ol>
 <li>
 <p>Create <code>/etc/cron.daily/emergence-restic-backup</code></p>
