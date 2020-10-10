@@ -1,0 +1,907 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="http://emergenceplatform.github.io/book/guides/translating-sites/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Localization - Emergence</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffa724">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="orange" data-md-color-accent="red">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#localization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://emergenceplatform.github.io/book/" title="Emergence" class="md-header-nav__button md-logo" aria-label="Emergence">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Emergence
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Localization
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/EmergencePlatform/book/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Introduction
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../development/console-command/" class="md-tabs__link">
+          Development
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../deployment/docker/" class="md-tabs__link">
+          Deployment
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../creating-a-dynamic-page/" class="md-tabs__link md-tabs__link--active">
+          Guides
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://emergenceplatform.github.io/book/" title="Emergence" class="md-nav__button md-logo" aria-label="Emergence">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Emergence
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/EmergencePlatform/book/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Development
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Development" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/console-command/" class="md-nav__link">
+      Development: Build a Console Command
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/getting_started/" class="md-nav__link">
+      Getting Started with Development
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/site-specific-service/" class="md-nav__link">
+      Development: Build a Site-specific Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/studio/" class="md-nav__link">
+      Development: Using Studio
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Deployment
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Deployment
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/docker/" class="md-nav__link">
+      Deploy a Site with Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/habitat/" class="md-nav__link">
+      Deploy a Site with Chef Habitat
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Guides
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Guides" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../creating-a-dynamic-page/" class="md-nav__link">
+      Creating a Dynamic Page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../make-a-model-searchable-by-tags/" class="md-nav__link">
+      Make a Model Searchable by Tags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../migrate-site-to-holobranch/" class="md-nav__link">
+      Migrate a Site to a Holobranch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../migrations/" class="md-nav__link">
+      Migrations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sending-email/" class="md-nav__link">
+      Sending Email
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../skeletons-from-scratch/" class="md-nav__link">
+      Bootstrap a Site from Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Localization
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Localization
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-localization-files-on-server" class="md-nav__link">
+    Install Localization Files on Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marking-translatable-strings" class="md-nav__link">
+    Marking translatable strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-pot-files" class="md-nav__link">
+    Generating .pot Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-po-files" class="md-nav__link">
+    Generating .po Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-po-files" class="md-nav__link">
+    Uploading .po Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Uploading .po Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-files" class="md-nav__link">
+    Verify Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turning-localization-on" class="md-nav__link">
+    Turning Localization On
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-locale" class="md-nav__link">
+    Switching Locale
+  </a>
+  
+    <nav class="md-nav" aria-label="Switching Locale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specify-via-query-string-parameter-with-each-request" class="md-nav__link">
+    Specify via query string parameter with each request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-via-client-side-cookie" class="md-nav__link">
+    Set via client-side cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send-accept-language-header-with-requests" class="md-nav__link">
+    Send Accept-Language header with requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-default-language-site-wide" class="md-nav__link">
+    Set default language site-wide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../SUMMARY/" class="md-nav__link">
+      Table of contents
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-localization-files-on-server" class="md-nav__link">
+    Install Localization Files on Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marking-translatable-strings" class="md-nav__link">
+    Marking translatable strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-pot-files" class="md-nav__link">
+    Generating .pot Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-po-files" class="md-nav__link">
+    Generating .po Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-po-files" class="md-nav__link">
+    Uploading .po Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Uploading .po Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-files" class="md-nav__link">
+    Verify Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turning-localization-on" class="md-nav__link">
+    Turning Localization On
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-locale" class="md-nav__link">
+    Switching Locale
+  </a>
+  
+    <nav class="md-nav" aria-label="Switching Locale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specify-via-query-string-parameter-with-each-request" class="md-nav__link">
+    Specify via query string parameter with each request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-via-client-side-cookie" class="md-nav__link">
+    Set via client-side cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send-accept-language-header-with-requests" class="md-nav__link">
+    Send Accept-Language header with requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-default-language-site-wide" class="md-nav__link">
+    Set default language site-wide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/EmergencePlatform/book/edit/master/docs/guides/translating-sites.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="localization">Localization<a class="headerlink" href="#localization" title="Permanent link"> ¶</a></h1>
+<h2 id="install-localization-files-on-server">Install Localization Files on Server<a class="headerlink" href="#install-localization-files-on-server" title="Permanent link"> ¶</a></h2>
+<p>First ensure the locales you&rsquo;d like to create localization files for are installed on your server.</p>
+<ol>
+<li>Check which locals are currently supported <code>locale -a</code></li>
+<li>
+<p>Add the locales you want (for example<code>es</code>):</p>
+<p><code>sudo locale-gen es_US</code></p>
+<p><code>sudo locale-gen es_US.UTF-8</code></p>
+</li>
+<li>
+<p>Run this update command</p>
+<p><code>sudo update-locale</code></p>
+</li>
+<li>
+<p>Restart &lsquo;Web&rsquo; in the Emergence Portal (:9083)</p>
+</li>
+</ol>
+<h2 id="marking-translatable-strings">Marking translatable strings<a class="headerlink" href="#marking-translatable-strings" title="Permanent link"> ¶</a></h2>
+<p>To flag text in your dwoo or php files as translatable, simply wrap the text in a gettext() or shortcut function.</p>
+<p>See full details here: <a href="http://emr.ge/docs/localization/marking">http://emr.ge/docs/localization/marking</a></p>
+<h2 id="generating-pot-files">Generating .pot Files<a class="headerlink" href="#generating-pot-files" title="Permanent link"> ¶</a></h2>
+<p>Emergence can generate a .pot file by scanning your entire code base and pulling out all translatable strings. This file will then be consumed by Poedit where they&rsquo;ll be transalted and exported into .po files. To generate a .pot file, go to the site-admin portal of your website and click &lsquo;Generate .pot file&rsquo;.</p>
+<h2 id="generating-po-files">Generating .po Files<a class="headerlink" href="#generating-po-files" title="Permanent link"> ¶</a></h2>
+<p>Open the .pot file generated in the previous step in <a href="https://poedit.net/">Poedit</a>. Once opened, create a new translation in the language of your choice. This is where you&rsquo;ll actually need to translate all the strings one by one. Once finished, save the .po file out to site.po (which you&rsquo;ll upload in the next step).</p>
+<h2 id="uploading-po-files">Uploading .po Files<a class="headerlink" href="#uploading-po-files" title="Permanent link"> ¶</a></h2>
+<p>You&rsquo;ll now want to upload the site.po files generated in the previous step into each emergence site you&rsquo;d like to support. Upload each file using the following pattern, where es stands for Spanish.</p>
+<p><code>/locales/es_US.utf8/site.po</code></p>
+<p>The /locales directory is at the same level as your php-classes directory. If it&rsquo;s not already present, you&rsquo;ll be able to find it in the _parent directory.</p>
+<p><strong>Note:</strong> to allow users easy access to switch back to English, you&rsquo;ll want to add a en_US file that contains all the bare English words. This is important because in the last step, we&rsquo;ll generate a select box from the supported languages and if English isn&rsquo;t present it won&rsquo;t be available.</p>
+<h3 id="verify-files">Verify Files<a class="headerlink" href="#verify-files" title="Permanent link"> ¶</a></h3>
+<p>To verify you&rsquo;ve added the files to the correct location, make sure you see all the expected languages by calling the following function:</p>
+<p><code>Emergence\Locale::getAvailableLocales()</code></p>
+<h2 id="turning-localization-on">Turning Localization On<a class="headerlink" href="#turning-localization-on" title="Permanent link"> ¶</a></h2>
+<p>To enable localization the <code>Emergence\Locale::loadRequestedLocale();</code> needs to be called on every request. This is best done in an event handler on the Site classes&rsquo; before script execute function. When this function it called, it will take the site.po file provided and generate a .mo file on the fly. This file will be saved in <code>/emergence/sites/HANDLE/site-data/locales/</code> directory.</p>
+<p><code>/event-handlers/Site/beforeScriptExecute/localization.php</code></p>
+<div class="highlight"><pre><span></span><code>&lt;?php
+
+Emergence\Locale::loadRequestedLocale();
+</code></pre></div>
+<h2 id="switching-locale">Switching Locale<a class="headerlink" href="#switching-locale" title="Permanent link"> ¶</a></h2>
+<h3 id="specify-via-query-string-parameter-with-each-request">Specify via query string parameter with each request<a class="headerlink" href="#specify-via-query-string-parameter-with-each-request" title="Permanent link"> ¶</a></h3>
+<p>By appending<code>?locale=es_US</code>to a request URI you can select the locale es_US.utf8 for a single response.</p>
+<h3 id="set-via-client-side-cookie">Set via client-side cookie<a class="headerlink" href="#set-via-client-side-cookie" title="Permanent link"> ¶</a></h3>
+<p>By setting a cookie called<code>locale</code>to<code>es_US</code>you can switch the locale for all responses during the life of the cookie. This is the recommended technique for implementing a user-selectable locale. You can set the cookie either client-side with JavaScript or server side with a response header.</p>
+<h3 id="send-accept-language-header-with-requests">Send Accept-Language header with requests<a class="headerlink" href="#send-accept-language-header-with-requests" title="Permanent link"> ¶</a></h3>
+<p>If the browser or client application provides an Accept-Language header, Emergence will attempt to pick the closest available locale.</p>
+<h3 id="set-default-language-site-wide">Set default language site-wide<a class="headerlink" href="#set-default-language-site-wide" title="Permanent link"> ¶</a></h3>
+<p><code>/php-config/Emergence/Locale.config.d/default.php</code></p>
+<div class="highlight"><pre><span></span><code>Emergence\Locale::$default = &#39;en_US.utf8&#39;;
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../skeletons-from-scratch/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Bootstrap a Site from Git
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../SUMMARY/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Table of contents
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

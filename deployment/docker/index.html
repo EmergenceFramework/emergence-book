@@ -1,0 +1,785 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="http://emergenceplatform.github.io/book/deployment/docker/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Deploy a Site with Docker - Emergence</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffa724">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="orange" data-md-color-accent="red">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deploy-a-site-with-docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://emergenceplatform.github.io/book/" title="Emergence" class="md-header-nav__button md-logo" aria-label="Emergence">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Emergence
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Deploy a Site with Docker
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/EmergencePlatform/book/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Introduction
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../development/console-command/" class="md-tabs__link">
+          Development
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Deployment
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../guides/creating-a-dynamic-page/" class="md-tabs__link">
+          Guides
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://emergenceplatform.github.io/book/" title="Emergence" class="md-nav__button md-logo" aria-label="Emergence">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Emergence
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/EmergencePlatform/book/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Development
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Development" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/console-command/" class="md-nav__link">
+      Development: Build a Console Command
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/getting_started/" class="md-nav__link">
+      Getting Started with Development
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/site-specific-service/" class="md-nav__link">
+      Development: Build a Site-specific Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/studio/" class="md-nav__link">
+      Development: Using Studio
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Deployment
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Deployment
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Deploy a Site with Docker
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Deploy a Site with Docker
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-from-habitat-plans" class="md-nav__link">
+    Building from Habitat plans
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-from-a-dockerfile" class="md-nav__link">
+    Building from a Dockerfile
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../habitat/" class="md-nav__link">
+      Deploy a Site with Chef Habitat
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Guides
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Guides" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/creating-a-dynamic-page/" class="md-nav__link">
+      Creating a Dynamic Page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/make-a-model-searchable-by-tags/" class="md-nav__link">
+      Make a Model Searchable by Tags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/migrate-site-to-holobranch/" class="md-nav__link">
+      Migrate a Site to a Holobranch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/migrations/" class="md-nav__link">
+      Migrations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/sending-email/" class="md-nav__link">
+      Sending Email
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/skeletons-from-scratch/" class="md-nav__link">
+      Bootstrap a Site from Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/translating-sites/" class="md-nav__link">
+      Localization
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../SUMMARY/" class="md-nav__link">
+      Table of contents
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-from-habitat-plans" class="md-nav__link">
+    Building from Habitat plans
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-from-a-dockerfile" class="md-nav__link">
+    Building from a Dockerfile
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/EmergencePlatform/book/edit/master/docs/deployment/docker.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="deploy-a-site-with-docker">Deploy a Site with Docker<a class="headerlink" href="#deploy-a-site-with-docker" title="Permanent link"> ¶</a></h1>
+<p>There are two methods, both based on <a href="../habitat/">Chef Habitat plans</a> for deploying an emergence site with Docker:</p>
+<ul>
+<li>Build Habitat packages for the app and composite and then have Habitat export a Docker container from the composite package</li>
+<li>Write a Dockerfile that handles building both Habitat packages internally and make deliberate use of Docker layers</li>
+</ul>
+<p>The former lets you stay out of the weeds of Docker container builds and provides versatile Habitat packages you can deploy in a variety of ways. The later lets you stay out of the weeds of Habitat and provides a hyper-optimized set of container image layers.</p>
+<h2 id="building-from-habitat-plans">Building from Habitat plans<a class="headerlink" href="#building-from-habitat-plans" title="Permanent link"> ¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">HAB_ORIGIN</span><span class="o">=</span><span class="s2">&quot;myorigin&quot;</span>
+
+hab pkg build .
+hab pkg build --reuse habitat/composite
+env <span class="k">$(</span>cat results/last_build.env <span class="p">|</span> xargs<span class="k">)</span> bash -c <span class="s1">&#39;hab pkg export docker results/$pkg_artifact&#39;</span>
+</code></pre></div>
+<h2 id="building-from-a-dockerfile">Building from a Dockerfile<a class="headerlink" href="#building-from-a-dockerfile" title="Permanent link"> ¶</a></h2>
+<p>This Dockerfile can be used as-is for any emergence project repository with <code>habitat/plan.sh</code> and <code>habitat/composite/plan.sh</code> in place per the <a href="../habitat/">Deploy a Site with Chef Habitat</a> guide. Replace every occurance of the placeholder <code>myorigin</code> with any origin name you&rsquo;d like to prefix your built packages with. In this scenario it need not be externally registered with any bldr server. There are also several occurances of the placeholder <code>myapp</code> that you should replace as well.</p>
+<div class="highlight"><pre><span></span><code><span class="c"># This Dockerfile is hyper-optimized to minimize layer changes</span>
+
+<span class="k">FROM</span> <span class="s">jarvus/habitat-compose:latest</span> <span class="k">as</span> <span class="s">habitat</span>
+<span class="k">ARG</span> <span class="nv">HAB_LICENSE</span><span class="o">=</span>no-accept
+<span class="k">ENV</span> <span class="nv">HAB_LICENSE</span><span class="o">=</span><span class="nv">$HAB_LICENSE</span>
+<span class="k">ENV</span> <span class="nv">STUDIO_TYPE</span><span class="o">=</span>Dockerfile
+<span class="k">ENV</span> <span class="nv">HAB_ORIGIN</span><span class="o">=</span>myorigin
+<span class="k">RUN</span> hab origin key generate
+<span class="c"># pre-layer all external runtime plan deps</span>
+<span class="k">COPY</span> habitat/plan.sh /habitat/plan.sh
+<span class="k">RUN</span> hab pkg install <span class="se">\</span>
+    core/bash <span class="se">\</span>
+    emergence/php-runtime <span class="se">\</span>
+    <span class="k">$(</span><span class="o">{</span> cat <span class="s1">&#39;/habitat/plan.sh&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;echo &quot;${pkg_deps[@]/$pkg_origin\/*/}&quot;&#39;</span><span class="p">;</span> <span class="o">}</span> <span class="p">|</span> hab pkg <span class="nb">exec</span> core/bash bash<span class="k">)</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> hab pkg <span class="nb">exec</span> core/coreutils rm -rf /hab/<span class="o">{</span>artifacts,src<span class="o">}</span>/
+<span class="c"># pre-layer all external runtime composite deps</span>
+<span class="k">COPY</span> habitat/composite/plan.sh /habitat/composite/plan.sh
+<span class="k">RUN</span> hab pkg install <span class="se">\</span>
+    emergence/nginx <span class="se">\</span>
+    jarvus/habitat-compose <span class="se">\</span>
+    <span class="k">$(</span><span class="o">{</span> cat <span class="s1">&#39;/habitat/composite/plan.sh&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;echo &quot;${pkg_deps[@]/$pkg_origin\/*/} ${composite_mysql_pkg:-core/mysql}&quot;&#39;</span><span class="p">;</span> <span class="o">}</span> <span class="p">|</span> hab pkg <span class="nb">exec</span> core/bash bash<span class="k">)</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> hab pkg <span class="nb">exec</span> core/coreutils rm -rf /hab/<span class="o">{</span>artifacts,src<span class="o">}</span>/
+
+
+<span class="k">FROM</span> <span class="s">habitat</span> <span class="k">as</span> <span class="s">projector</span>
+<span class="c"># pre-layer all build-time plan deps</span>
+<span class="k">RUN</span> hab pkg install <span class="se">\</span>
+    core/hab-plan-build <span class="se">\</span>
+    jarvus/hologit <span class="se">\</span>
+    jarvus/toml-merge <span class="se">\</span>
+    <span class="k">$(</span><span class="o">{</span> cat <span class="s1">&#39;/habitat/plan.sh&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;echo &quot;${pkg_build_deps[@]/$pkg_origin\/*/}&quot;&#39;</span><span class="p">;</span> <span class="o">}</span> <span class="p">|</span> hab pkg <span class="nb">exec</span> core/bash bash<span class="k">)</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> hab pkg <span class="nb">exec</span> core/coreutils rm -rf /hab/<span class="o">{</span>artifacts,src<span class="o">}</span>/
+<span class="c"># pre-layer all build-time composite deps</span>
+<span class="k">RUN</span> hab pkg install <span class="se">\</span>
+    jarvus/toml-merge <span class="se">\</span>
+    <span class="k">$(</span><span class="o">{</span> cat <span class="s1">&#39;/habitat/composite/plan.sh&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;echo &quot;${pkg_build_deps[@]/$pkg_origin\/*/}&quot;&#39;</span><span class="p">;</span> <span class="o">}</span> <span class="p">|</span> hab pkg <span class="nb">exec</span> core/bash bash<span class="k">)</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> hab pkg <span class="nb">exec</span> core/coreutils rm -rf /hab/<span class="o">{</span>artifacts,src<span class="o">}</span>/
+<span class="c"># build application</span>
+<span class="k">COPY</span> . /src
+<span class="k">RUN</span> hab pkg <span class="nb">exec</span> core/hab-plan-build hab-plan-build /src
+<span class="k">RUN</span> hab pkg <span class="nb">exec</span> core/hab-plan-build hab-plan-build /src/habitat/composite
+
+
+<span class="k">FROM</span> <span class="s">habitat</span> <span class="k">as</span> <span class="s">runtime</span>
+<span class="c"># install .hart artifact from builder stage</span>
+<span class="k">COPY</span> --from<span class="o">=</span>projector /hab/cache/artifacts/<span class="nv">$HAB_ORIGIN</span>-* /hab/cache/artifacts/
+<span class="k">RUN</span> hab pkg install /hab/cache/artifacts/<span class="nv">$HAB_ORIGIN</span>-* <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> hab pkg <span class="nb">exec</span> core/coreutils rm -rf /hab/<span class="o">{</span>artifacts,src<span class="o">}</span>/
+
+
+<span class="c"># configure persistent volumes</span>
+<span class="k">RUN</span> hab pkg <span class="nb">exec</span> core/coreutils mkdir -p <span class="s1">&#39;/hab/svc/mysql/data&#39;</span> <span class="s1">&#39;/hab/svc/myapp/data&#39;</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> hab pkg <span class="nb">exec</span> core/coreutils chown hab:hab -R <span class="s1">&#39;/hab/svc/mysql/data&#39;</span> <span class="s1">&#39;/hab/svc/myapp/data&#39;</span>
+
+<span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&quot;/hab/svc/mysql/data&quot;</span><span class="p">,</span> <span class="s2">&quot;/hab/svc/myapp/data&quot;</span><span class="p">]</span>
+
+
+<span class="c"># configure entrypoint</span>
+<span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&quot;hab&quot;</span><span class="p">,</span> <span class="s2">&quot;sup&quot;</span><span class="p">,</span> <span class="s2">&quot;run&quot;</span><span class="p">]</span>
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;myorigin/myapp-composite&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>With this file in place, you can run the following command to build a container without Habitat installed:</p>
+<div class="highlight"><pre><span></span><code>docker build . <span class="se">\</span>
+    --build-arg <span class="nv">HAB_LICENSE</span><span class="o">=</span>accept-no-persist <span class="se">\</span>
+    -t myorigin/myapp
+</code></pre></div>
+<p>The container could then be run like this:</p>
+<div class="highlight"><pre><span></span><code>docker run <span class="se">\</span>
+    --name myapp <span class="se">\</span>
+    -d <span class="se">\</span>
+    -p <span class="m">80</span>:80 <span class="se">\</span>
+    -e <span class="nv">HAB_LICENSE</span><span class="o">=</span>accept <span class="se">\</span>
+    myorigin/myapp
+</code></pre></div>
+<p>Verify service status:</p>
+<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> myapp hab svc status
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../development/studio/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Development: Using Studio
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../habitat/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Deploy a Site with Chef Habitat
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
