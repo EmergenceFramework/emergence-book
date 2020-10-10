@@ -1,9 +1,11 @@
 # Restic Backups
 
-## Install Restic CLI
+## Install Restic
+
+Install the `restic` and `jq` commands:
 
 ```bash
-hab pkg install --binlink core/restic
+hab pkg install --binlink core/restic core/jq-static
 ```
 
 ## Provision bucket
