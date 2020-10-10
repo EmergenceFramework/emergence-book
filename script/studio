@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# script/studio: Enter a Chef Habitat studio for the application.
+
+set -e
+cd "$(dirname "$0")/.."
+
+
+script/-studio-bootstrap
+
+
+echo
+echo "==> studio: configuring Chef Habitat studio Docker options…"
+export HAB_DOCKER_OPTS="
+    --name emergence-book-studio
+    -p 9089:8000
+    -v $(cd ~/.ssh; pwd)/id_rsa:/root/.ssh/id_rsa:ro
+    -v $(cd ~/.ssh; pwd)/known_hosts:/root/.ssh/known_hosts:ro
+"
+echo "${HAB_DOCKER_OPTS}"
+
+
+echo
+echo "==> studio: launching Docker-powered Chef Habitat studio…"
+hab studio enter -D

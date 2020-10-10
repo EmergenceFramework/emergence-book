@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+# install studio packages
+hab pkg install \
+    jarvus/mkdocs-studio \
+    jarvus/studio-toolkit
+
+
+# load studio toolkit
+source "$(hab pkg path jarvus/studio-toolkit)/studio.sh"
+
+
+# load MkDocs studio
+export DOCS_HOLOBRANCH="gh-pages"
+source "$(hab pkg path jarvus/mkdocs-studio)/studio.sh"
+
+
+## final init and output
+studio-help
+
+
+# final blank line
+echo
