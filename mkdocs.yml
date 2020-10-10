@@ -6,7 +6,7 @@ edit_uri: edit/master/docs
 theme:
   name: material
   features:
-    - tabs
+    - navigation.tabs
   palette:
     primary: "orange"
     accent: "red"
