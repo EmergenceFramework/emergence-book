@@ -1,7 +1,7 @@
 site_name: Emergence
 repo_url: https://github.com/EmergencePlatform/book
 site_url: http://emergenceplatform.github.io/book/
-edit_uri: edit/master
+edit_uri: edit/master/docs
 
 theme:
   name: material
