@@ -1,0 +1,6 @@
+arrange:
+  - README.md
+  - development
+  - deployment
+  - guides
+  - ...
