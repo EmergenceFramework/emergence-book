@@ -1,4 +1,4 @@
-# Restic Backups
+# Set up Backups with Restic
 
 ## Install Restic
 
@@ -66,6 +66,8 @@ restic init
 ```
 
 ## Create backup script
+
+TODO: bundle up with Habitat?
 
 1. Create `/etc/cron.daily/emergence-restic-backup`
 
