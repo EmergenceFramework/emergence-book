@@ -29,7 +29,16 @@ if ! [ -x "$(command -v hab)" ]; then
     exit 1
 fi
 
-hab_version="$(hab --version)"
+set +e
+hab_version="$(hab --version < /dev/null)"
+if [ $? -ne 0 ]; then
+    echo
+    echo "   Failed to read hab version, you may need to accept the Chef Habitat"
+    echo "   license. Please run \`hab setup\` or configure HAB_LICENSE in the environment"
+    exit 1
+fi
+set -e
+
 if ! [[ $hab_version =~ ^hab[[:space:]][0-9]+\.[0-9]+\.[0-9]+/[0-9]+$ ]]; then
     echo
     echo "    Could not parse hab version: ${hab_version}"
@@ -62,6 +71,14 @@ _origin=$(awk -F'"' '/^origin = /{print $2}' ~/.hab/etc/cli.toml)
 
 echo
 echo "==> studio-bootstrap: verifying origin '${_origin}'…"
+
+_root_owned_key_count=$(ls -l ~/.hab/cache/keys | cut -f 3,4 -d " " | grep "root root" | wc -l)
+
+if [ "$_root_owned_key_count" -gt 0 ]; then
+    echo "Working around: https://github.com/habitat-sh/habitat/issues/7737"
+    echo "Found ${_root_owned_key_count} keys owned by root. Chowning them to $USER:$USER."
+    sudo chown $USER:$USER ~/.hab/cache/keys/*
+fi
 
 if ! hab origin key export --type secret "${_origin}" > /dev/null; then
     echo "No key has been generated for origin ${_origin}, run: hab origin key generate ${_origin}"
