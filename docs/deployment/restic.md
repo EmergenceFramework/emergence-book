@@ -1,11 +1,11 @@
 # Set up Backups with Restic
 
-## Install Restic
+## Install restic-snapshot command
 
-Install the `restic` and `jq` commands:
+Install the `emergence/restic-snapshot` command:
 
 ```bash
-hab pkg install --binlink core/restic core/jq-static
+hab pkg install emergence/restic-snapshot
 ```
 
 ## Provision bucket
@@ -74,84 +74,7 @@ TODO: bundle up with Habitat?
     ```bash
     #!/bin/bash
 
-    set -a
-    HOME=/root
-    source /etc/restic.env
-    set +a
-
-    # snapshot host config to _
-    >&2 echo -e "\n==> snapshot host"
-
-    /bin/restic backup /emergence \
-        --host=_ \
-        --exclude='/emergence/services/**' \
-        --exclude='/emergence/sites/**'
-
-    # snapshot each site to its own host
-    for site_path in /emergence/sites/*; do
-    site_name=$(basename ${site_path})
-
-    >&2 echo -e "\n==> snapshot site: ${site_name} @ ${site_path}"
-
-    /bin/restic backup "${site_path}/" \
-        --host="${site_name}" \
-        --exclude='*.log' \
-        --exclude='/emergence/sites/*/logs/**' \
-        --exclude='/emergence/sites/**/media/*x*/**'
-    done
-
-    # setup mysql
-    mysql_args="-u root -p$(/bin/jq -r .services.plugins.sql.managerPassword /emergence/config.json) -S /emergence/services/run/mysqld/mysqld.sock"
-
-    mysql_query() {
-        >&2 echo -e "\n==> mysql_query: ${1}"
-
-        /usr/bin/mysql $mysql_args -srNe "${1}"
-    }
-
-    mysql_dump() {
-        >&2 echo -e "\n==> mysql_dump: $@"
-
-        /usr/bin/mysqldump ${mysql_args} \
-            --force \
-            --single-transaction \
-            --quick \
-            --compact \
-            --extended-insert \
-            --order-by-primary \
-            --ignore-table="${1}.sessions" \
-            $@
-    }
-
-    # dump each database+table
-    databases=$(mysql_query 'SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN ("information_schema", "mysql", "performance_schema")')
-
-    for db_name in $databases; do
-
-    if [ -d "/emergence/sites/${db_name}" ]; then
-        cd "/emergence/sites/${db_name}"
-    else
-        cd "/tmp"
-    fi
-
-    mysql_dump "${db_name}" \
-        | /bin/restic backup \
-            --host="${db_name}" \
-            --stdin \
-            --stdin-filename="database.sql"
-
-    # restic de-dupe not as effective
-    #    | /bin/gzip --rsyncable \
-    done
-
-    # thin out snapshots
-    >&2 echo -e "\n==> restic forget"
-    /bin/restic forget \
-        --keep-last=1 \
-        --keep-within=3d \
-        --keep-daily=10 \
-        --keep-weekly=10 \
-        --keep-monthly=1200
+    /bin/hab pkg exec emergence/restic-snapshot snapshot
     ```
 
 2. Max executable:
