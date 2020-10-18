@@ -110,7 +110,7 @@ TODO: bundle up with Habitat?
     }
 
     mysql_dump() {
-        >&2 echo -e "\n==> mysql_dump: ${1} ${2}"
+        >&2 echo -e "\n==> mysql_dump: $@"
 
         /usr/bin/mysqldump ${mysql_args} \
             --force \
@@ -120,7 +120,7 @@ TODO: bundle up with Habitat?
             --extended-insert \
             --order-by-primary \
             --ignore-table="${1}.sessions" \
-            "${1}" "${2}"
+            $@
     }
 
     # dump each database+table
@@ -134,7 +134,7 @@ TODO: bundle up with Habitat?
         cd "/tmp"
     fi
 
-    mysql_dump "${db_name}" "${table_name}" \
+    mysql_dump "${db_name}" \
         | /bin/restic backup \
             --host="${db_name}" \
             --stdin \
