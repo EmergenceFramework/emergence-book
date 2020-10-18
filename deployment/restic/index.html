@@ -421,8 +421,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-restic" class="md-nav__link">
-    Install Restic
+  <a href="#install-restic-snapshot-command" class="md-nav__link">
+    Install restic-snapshot command
   </a>
   
 </li>
@@ -620,8 +620,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-restic" class="md-nav__link">
-    Install Restic
+  <a href="#install-restic-snapshot-command" class="md-nav__link">
+    Install restic-snapshot command
   </a>
   
 </li>
@@ -679,9 +679,9 @@
                 
                 
                 <h1 id="set-up-backups-with-restic">Set up Backups with Restic<a class="headerlink" href="#set-up-backups-with-restic" title="Permanent link"> ¶</a></h1>
-<h2 id="install-restic">Install Restic<a class="headerlink" href="#install-restic" title="Permanent link"> ¶</a></h2>
-<p>Install the <code>restic</code> and <code>jq</code> commands:</p>
-<div class="highlight"><pre><span></span><code>hab pkg install --binlink core/restic core/jq-static
+<h2 id="install-restic-snapshot-command">Install restic-snapshot command<a class="headerlink" href="#install-restic-snapshot-command" title="Permanent link"> ¶</a></h2>
+<p>Install the <code>emergence/restic-snapshot</code> command:</p>
+<div class="highlight"><pre><span></span><code>hab pkg install emergence/restic-snapshot
 </code></pre></div>
 <h2 id="provision-bucket">Provision bucket<a class="headerlink" href="#provision-bucket" title="Permanent link"> ¶</a></h2>
 <p>Create a bucket and obtain access credentials at a low-cost cloud object storage host:</p>
@@ -742,84 +742,7 @@ restic init
 <p>Create <code>/etc/cron.daily/emergence-restic-backup</code></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-<span class="nb">set</span> -a
-<span class="nv">HOME</span><span class="o">=</span>/root
-<span class="nb">source</span> /etc/restic.env
-<span class="nb">set</span> +a
-
-<span class="c1"># snapshot host config to _</span>
-&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; snapshot host&quot;</span>
-
-/bin/restic backup /emergence <span class="se">\</span>
-    --host<span class="o">=</span>_ <span class="se">\</span>
-    --exclude<span class="o">=</span><span class="s1">&#39;/emergence/services/**&#39;</span> <span class="se">\</span>
-    --exclude<span class="o">=</span><span class="s1">&#39;/emergence/sites/**&#39;</span>
-
-<span class="c1"># snapshot each site to its own host</span>
-<span class="k">for</span> site_path in /emergence/sites/*<span class="p">;</span> <span class="k">do</span>
-<span class="nv">site_name</span><span class="o">=</span><span class="k">$(</span>basename <span class="si">${</span><span class="nv">site_path</span><span class="si">}</span><span class="k">)</span>
-
-&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; snapshot site: </span><span class="si">${</span><span class="nv">site_name</span><span class="si">}</span><span class="s2"> @ </span><span class="si">${</span><span class="nv">site_path</span><span class="si">}</span><span class="s2">&quot;</span>
-
-/bin/restic backup <span class="s2">&quot;</span><span class="si">${</span><span class="nv">site_path</span><span class="si">}</span><span class="s2">/&quot;</span> <span class="se">\</span>
-    --host<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">site_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
-    --exclude<span class="o">=</span><span class="s1">&#39;*.log&#39;</span> <span class="se">\</span>
-    --exclude<span class="o">=</span><span class="s1">&#39;/emergence/sites/*/logs/**&#39;</span> <span class="se">\</span>
-    --exclude<span class="o">=</span><span class="s1">&#39;/emergence/sites/**/media/*x*/**&#39;</span>
-<span class="k">done</span>
-
-<span class="c1"># setup mysql</span>
-<span class="nv">mysql_args</span><span class="o">=</span><span class="s2">&quot;-u root -p</span><span class="k">$(</span>/bin/jq -r .services.plugins.sql.managerPassword /emergence/config.json<span class="k">)</span><span class="s2"> -S /emergence/services/run/mysqld/mysqld.sock&quot;</span>
-
-mysql_query<span class="o">()</span> <span class="o">{</span>
-    &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; mysql_query: </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
-
-    /usr/bin/mysql <span class="nv">$mysql_args</span> -srNe <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="o">}</span>
-
-mysql_dump<span class="o">()</span> <span class="o">{</span>
-    &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; mysql_dump: </span><span class="nv">$@</span><span class="s2">&quot;</span>
-
-    /usr/bin/mysqldump <span class="si">${</span><span class="nv">mysql_args</span><span class="si">}</span> <span class="se">\</span>
-        --force <span class="se">\</span>
-        --single-transaction <span class="se">\</span>
-        --quick <span class="se">\</span>
-        --compact <span class="se">\</span>
-        --extended-insert <span class="se">\</span>
-        --order-by-primary <span class="se">\</span>
-        --ignore-table<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">.sessions&quot;</span> <span class="se">\</span>
-        <span class="nv">$@</span>
-<span class="o">}</span>
-
-<span class="c1"># dump each database+table</span>
-<span class="nv">databases</span><span class="o">=</span><span class="k">$(</span>mysql_query <span class="s1">&#39;SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN (&quot;information_schema&quot;, &quot;mysql&quot;, &quot;performance_schema&quot;)&#39;</span><span class="k">)</span>
-
-<span class="k">for</span> db_name in <span class="nv">$databases</span><span class="p">;</span> <span class="k">do</span>
-
-<span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;/emergence/sites/</span><span class="si">${</span><span class="nv">db_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">cd</span> <span class="s2">&quot;/emergence/sites/</span><span class="si">${</span><span class="nv">db_name</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">else</span>
-    <span class="nb">cd</span> <span class="s2">&quot;/tmp&quot;</span>
-<span class="k">fi</span>
-
-mysql_dump <span class="s2">&quot;</span><span class="si">${</span><span class="nv">db_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
-    <span class="p">|</span> /bin/restic backup <span class="se">\</span>
-        --host<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">db_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
-        --stdin <span class="se">\</span>
-        --stdin-filename<span class="o">=</span><span class="s2">&quot;database.sql&quot;</span>
-
-<span class="c1"># restic de-dupe not as effective</span>
-<span class="c1">#    | /bin/gzip --rsyncable \</span>
-<span class="k">done</span>
-
-<span class="c1"># thin out snapshots</span>
-&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n==&gt; restic forget&quot;</span>
-/bin/restic forget <span class="se">\</span>
-    --keep-last<span class="o">=</span><span class="m">1</span> <span class="se">\</span>
-    --keep-within<span class="o">=</span>3d <span class="se">\</span>
-    --keep-daily<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
-    --keep-weekly<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
-    --keep-monthly<span class="o">=</span><span class="m">1200</span>
+/bin/hab pkg <span class="nb">exec</span> emergence/restic-snapshot snapshot
 </code></pre></div>
 </li>
 <li>
