@@ -62,12 +62,10 @@ Load the environment into your current shell to run Restic's one-time `init` com
 
 ```bash
 set -a; source /etc/restic.env; set +a
-restic init
+hab pkg exec emergence/restic-snapshot restic init
 ```
 
 ## Create backup script
-
-TODO: bundle up with Habitat?
 
 1. Create `/etc/cron.daily/emergence-restic-backup`
 
@@ -90,3 +88,23 @@ To verify the configuration and create an initial snapshot:
 ```bash
 /etc/cron.daily/emergence-restic-backup
 ```
+
+## Verifying backups
+
+1. Load environment:
+
+    ```bash
+    set -a; source /etc/restic.env; set +a
+    ```
+
+2. List snapshots:
+
+    ```bash
+    hab pkg exec emergence/restic-snapshot restic snapshots
+    ```
+
+3. Examine contents of an SQL dump:
+
+    ```bash
+    hab pkg exec emergence/restic-snapshot restic dump ced0825f /database.sql | grep '^CREATE'
+    ```
