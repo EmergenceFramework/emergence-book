@@ -462,6 +462,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#verifying-backups" class="md-nav__link">
+    Verifying backups
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -661,6 +668,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#verifying-backups" class="md-nav__link">
+    Verifying backups
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -733,10 +747,9 @@
 <h2 id="initialize-repository">Initialize repository<a class="headerlink" href="#initialize-repository" title="Permanent link"> ¶</a></h2>
 <p>Load the environment into your current shell to run Restic&rsquo;s one-time <code>init</code> command to set up the encrypted repository structure within the bucket:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">set</span> -a<span class="p">;</span> <span class="nb">source</span> /etc/restic.env<span class="p">;</span> <span class="nb">set</span> +a
-restic init
+hab pkg <span class="nb">exec</span> emergence/restic-snapshot restic init
 </code></pre></div>
 <h2 id="create-backup-script">Create backup script<a class="headerlink" href="#create-backup-script" title="Permanent link"> ¶</a></h2>
-<p>TODO: bundle up with Habitat?</p>
 <ol>
 <li>
 <p>Create <code>/etc/cron.daily/emergence-restic-backup</code></p>
@@ -755,6 +768,24 @@ restic init
 <p>To verify the configuration and create an initial snapshot:</p>
 <div class="highlight"><pre><span></span><code>/etc/cron.daily/emergence-restic-backup
 </code></pre></div>
+<h2 id="verifying-backups">Verifying backups<a class="headerlink" href="#verifying-backups" title="Permanent link"> ¶</a></h2>
+<ol>
+<li>
+<p>Load environment:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">set</span> -a<span class="p">;</span> <span class="nb">source</span> /etc/restic.env<span class="p">;</span> <span class="nb">set</span> +a
+</code></pre></div>
+</li>
+<li>
+<p>List snapshots:</p>
+<div class="highlight"><pre><span></span><code>hab pkg <span class="nb">exec</span> emergence/restic-snapshot restic snapshots
+</code></pre></div>
+</li>
+<li>
+<p>Examine contents of an SQL dump:</p>
+<div class="highlight"><pre><span></span><code>hab pkg <span class="nb">exec</span> emergence/restic-snapshot restic dump ced0825f /database.sql <span class="p">|</span> grep <span class="s1">&#39;^CREATE&#39;</span>
+</code></pre></div>
+</li>
+</ol>
                 
               
               
