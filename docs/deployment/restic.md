@@ -18,7 +18,14 @@ Create a bucket and obtain access credentials at a low-cost cloud object storage
 
 === "Backblaze"
     1. [Provision B2 bucket](https://secure.backblaze.com/b2_buckets.htm)
+        - Select *Private*
+        - Enable *Object Lock*
     2. [Provision B2 app key](https://secure.backblaze.com/app_keys.htm)
+        - Use same name as bucket
+        - Only allow access to created bucket
+        - Select *Read and Write* access
+        - Do not allow listing all bucket names
+        - Do not set file name prefix or duration
 
 ## Build restic environment
 
@@ -26,24 +33,26 @@ Create a secure file to store needed environment variables for the `restic` clie
 
 === "Linode"
     ```bash
-    #!/bin/bash
+    RESTIC_REPOSITORY=s3:us-east-1.linodeobjects.com/restic-myhost
+    RESTIC_PASSWORD=
 
-    RESTIC_REPOSITORY="s3:us-east-1.linodeobjects.com/myhost-restic"
-    RESTIC_PASSWORD=""
+    # Access Key:
+    AWS_ACCESS_KEY_ID=
 
-    AWS_ACCESS_KEY_ID="" # Access Key
-    AWS_SECRET_ACCESS_KEY="" # Secret Key
+    # Secret Key:
+    AWS_SECRET_ACCESS_KEY=
     ```
 
 === "Backblaze"
     ```bash
-    #!/bin/bash
+    RESTIC_REPOSITORY=b2:restic-myhost
+    RESTIC_PASSWORD=
 
-    RESTIC_REPOSITORY="b2:myhost-restic"
-    RESTIC_PASSWORD=""
+    # keyID:
+    B2_ACCOUNT_ID=
 
-    B2_ACCOUNT_ID="" # keyID
-    B2_ACCOUNT_KEY="" # applicationKey
+    # applicationKey:
+    B2_ACCOUNT_KEY=
     ```
 
 1. Create `/etc/restic.env` from above template
