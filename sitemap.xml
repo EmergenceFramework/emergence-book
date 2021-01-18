@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>http://emergenceplatform.github.io/book/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/development/console-command/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/development/getting_started/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/development/site-specific-service/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/development/studio/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/deployment/docker/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/deployment/habitat/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/deployment/restic/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/guides/creating-a-dynamic-page/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/guides/make-a-model-searchable-by-tags/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/guides/migrate-site-to-holobranch/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/guides/migrations/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/guides/sending-email/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/guides/skeletons-from-scratch/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/guides/translating-sites/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://emergenceplatform.github.io/book/SUMMARY/</loc>
-     <lastmod>2020-10-27</lastmod>
+     <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
